@@ -53,7 +53,7 @@
 		<commons.logging-version>1.1.1</commons.logging-version>
 		<commons.digester-version>2.1</commons.digester-version>
 		<commons.compress-version>1.4.1</commons.compress-version><!-- zip파일 압축하거나 풀때 사용  -->
-		<commons.beanutils-version>1.8.3</commons.beanutils-version>
+		<commons.beanutils-version>1.9.2</commons.beanutils-version>
 		
 		<!-- jackson -->
 		<jackson-version>1.9.10</jackson-version>
