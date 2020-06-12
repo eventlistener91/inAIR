@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="selfIntroduction">
+	<typeAlias alias="selfIntroductionVO" type="kr.or.inair.vo.SelfIntroductionVO"/>
+	
+	<statement id="selfIntroductionList" resultClass="selfIntroductionVO">
+		SELECT * 
+		FROM   SELFINTRODUCTION 
+		WHERE  RESUME_NUM = #resume_num# 
+	</statement>
+	
+	<insert id="insertSelfIntroductionInfo" parameterClass="selfIntroductionVO">
+		INSERT INTO SELFINTRODUCTION(SELFINTRO_NUM
+									,SELFINTRO_QESTN
+									,SELFINTRO_ANSWER
+									,RESUME_NUM)
+		VALUES(SEQ_SELFINTRODUCTION.NEXTVAL
+			  ,#selfintro_qestn#
+			  ,#selfintro_answer#
+			  ,#resume_num#)						  
+	</insert>	
+	
+	<update id="updateSelfIntroductionInfo" parameterClass="selfIntroductionVO">
+		UPDATE SELFINTRODUCTION 
+		SET    SELFINTRO_QESTN = #selfintro_qestn#
+			  ,SELFINTRO_ANSWER = #selfintro_answer#
+		WHERE  SELFINTRO_NUM = #selfintro_num#	
+	</update>
+</sqlMap> 

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="resboard">
+	<typeAlias alias="ResboardVO" type="kr.or.inair.vo.ResboardVO"/>
+	
+	<resultMap id="resboardResultMap" class="ResboardVO">
+		<result property="res_num" column="res_num"/>
+		<result property="com_id" column="com_id"/>
+		<result property="indvdl_id" column="indvdl_id"/>
+		<result property="res_cn" column="res_cn"/>
+		<result property="res_delete" column="res_delete"/>
+		<result property="res_depth" column="res_depth"/>
+		<result property="res_group" column="res_group"/>
+		<result property="res_hit" column="res_hit"/>
+		<result property="res_rgsde" column="res_rgsde"/>
+		<result property="res_sj" column="res_sj"/>
+		<result property="res_sn" column="res_sn"/>
+		<result property="items" column="res_num" select="reboard_file.reboardfileitemList"/>
+	</resultMap>
+
+	<sql id="selectAll">
+		SELECT * FROM RESBOARD
+			WHERE RES_DELETE = 'N'
+	</sql>
+	
+	<sql id="selectListAll">
+	<![CDATA[
+		SELECT * FROM RESBOARD
+		 WHERE RES_DELETE = 'N'
+		   AND RES_DEPTH <1
+	 ]]> 
+	</sql>
+	
+	<sql id="searchCondition">
+		<dynamic prepend="AND">
+			<isNotEmpty property="search_keyword">
+				<isEqual property="search_keycode" compareValue="TOTAL" open="(" close=")">
+						RES_SJ LIKE '%'||#search_keyword#||'%'
+					 OR RES_CN LIKE '%'||#search_keyword#||'%'
+					 OR INDVDL_ID LIKE '%'||#search_keyword#||'%'  	
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="SJ">
+					 RES_SJ LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="CN">
+					 RES_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="ID">
+					 INDVDL_ID LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<select id="resboardList" resultClass="ResboardVO" parameterClass="map">
+	    SELECT B.*
+	    FROM( SELECT ROWNUM rnum, A.*
+	    	FROM(<include refid="selectListAll"/>
+	    		 <include refid="searchCondition"/>
+	    				ORDER BY RES_GROUP,RES_SN DESC) A)B
+		<![CDATA[
+			WHERE B.RNUM <= #startCount# 
+			  AND B.RNUM >= #endCount# 
+			]]> 
+		    ORDER BY B.RNUM DESC 	
+	</select>
+	
+	<select id="totalReboardCount" parameterClass="map" resultClass="string">
+	  	<![CDATA[
+		 SELECT COUNT(RES_SN)
+		   FROM RESBOARD
+		 WHERE RES_DELETE ='N'
+		   AND RES_DEPTH < 1
+		 ]]> 
+		<include refid="searchCondition"/>
+	</select>
+	
+	<select id="resboardInfo" parameterClass="map" resultMap="resboardResultMap">
+		<include refid="selectAll"/>
+		AND RES_NUM = #res_num#
+	</select>
+	
+	<update id="resboardHit" parameterClass="map">
+		UPDATE RESBOARD
+		   SET RES_HIT = RES_HIT +1
+		 WHERE RES_NUM = #res_num#
+	</update>
+	
+	<update id="updateResboard" parameterClass="ResboardVO">
+		UPDATE RESBOARD
+		   SET RES_SJ = #res_sj#
+			  ,RES_CN = #res_cn#
+	    WHERE RES_NUM = #res_num#
+	</update>
+	
+	<delete id="deleteResboard" parameterClass="map">
+		UPDATE RESBOARD
+		   SET RES_DELETE ='Y'
+		 WHERE RES_NUM = #res_num#
+	</delete>
+	
+	<insert id="insertResboard" parameterClass="ResboardVO">
+		<selectKey keyProperty="res_num" resultClass="string">
+		  SELECT SEQ_RESBOARD.NEXTVAL FROM DUAL
+		</selectKey>
+		 INSERT INTO RESBOARD(RES_NUM
+		 					 ,RES_SJ
+		 					 ,RES_CN
+		 					 ,RES_GROUP
+		 					 ,COM_ID)
+					VALUES(#res_num#
+						  ,#res_sj#
+						  ,#res_cn#
+						  ,#res_num#
+						  ,#com_id#)
+	</insert>
+	
+	<select id="resboardComment" resultClass="ResboardVO" parameterClass="map">
+		SELECT B.*
+		  FROM(	SELECT ROWNUM rnum, A.*
+		  		  FROM( SELECT* FROM RESBOARD
+		  		  		ORDER BY RES_GROUP, RES_SN DESC)A)B
+		  		<![CDATA[
+		  			WHERE B.RES_GROUP = #res_group#
+		  			  AND B.RES_DELETE = 'N'
+		  			  AND B.RES_DEPTH > 0
+		  		]]>
+		  		ORDER BY B.RNUM DESC
+	</select>
+	
+	
+	<select id="incrementSEQ" parameterClass="ResboardVO" resultClass="string">
+		SELECT MAX(RES_SN)+1
+		  FROM RESBOARD
+		 WHERE RES_GROUP = #res_group#
+	</select>
+	
+	<update id="updateSEQ" parameterClass="ResboardVO">
+		UPDATE RESBOARD
+		   SET RES_SN = RES_SN+1
+		 WHERE RES_GROUP = #res_group#
+		   AND RES_SN > #res_sn#
+	</update>
+
+	<insert id="insertResboardReply" parameterClass="ResboardVO">
+		<selectKey keyProperty="res_num">
+			SELECT SEQ_RESBOARD.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO RESBOARD(RES_NUM
+							,RES_SJ
+							,INDVDL_ID
+							,COM_ID
+							,RES_CN
+							,RES_GROUP
+							,RES_SN
+							,RES_DEPTH)
+					VALUES(#res_num#
+						  ,#res_sj#
+						  ,#indvdl_id#
+						  ,#com_id#
+						  ,#res_cn#
+						  ,#res_group#
+						  ,#res_sn#
+						  ,#res_depth#)
+	</insert>
+	
+	<update id="updateComment" parameterClass="ResboardVO">
+		UPDATE RESBOARD
+		   SET RES_CN = #res_cn#
+		WHERE RES_NUM = #res_num#
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</sqlMap>

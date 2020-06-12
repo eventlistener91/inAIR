@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="winningPrize">
+	<typeAlias alias="winningPrizeVO" type="kr.or.inair.vo.WinningPrizeVO"/>
+	
+	<statement id="winningPrizeList" resultClass="winningPrizeVO">
+		SELECT WNPZ_NUM
+			  ,WNPZ_NAME
+			  ,CNFER_INSTT
+			  ,TO_CHAR(ACQDT, 'YYYY-MM-DD') AS ACQDT
+			  ,RESUME_NUM 
+		FROM   WINNINGPRIZE 
+		WHERE  RESUME_NUM = #resume_num#
+	</statement>
+	
+	<insert id="insertWinningPrizeInfo" parameterClass="winningPrizeVO">
+		INSERT INTO WINNINGPRIZE(WNPZ_NUM
+								,WNPZ_NAME
+								,CNFER_INSTT
+								,ACQDT
+								,RESUME_NUM)
+		VALUES(SEQ_WINNINGPRIZE.NEXTVAL
+			  ,#wnpz_name#
+			  ,#cnfer_instt#
+			  ,#acqdt#
+			  ,#resume_num#)						  
+	</insert>	
+	
+	<update id="updateWinningPrizeInfo" parameterClass="winningPrizeVO">
+		UPDATE WINNINGPRIZE 
+		SET    WNPZ_NAME = #wnpz_name#
+			  ,CNFER_INSTT = #cnfer_instt#
+			  ,ACQDT = #acqdt#
+		WHERE WNPZ_NUM = #wnpz_num#	
+	</update>
+</sqlMap> 

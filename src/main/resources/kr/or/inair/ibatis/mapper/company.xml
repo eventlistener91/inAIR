@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="company">
+	<typeAlias alias="companyVO" type="kr.or.inair.vo.CompanyVO"/>
+	
+	<statement id="getMyPageCompanyInfo" resultClass="companyVO">
+		SELECT * FROM COMPANY WHERE CORP_CODE = #corp_code#
+	</statement>
+	
+	<insert id="insertCompany" parameterClass="Map">
+		insert into company values (#corp_code#,
+									#corp_name#,
+									#corp_name_eng#,
+									#stock_name#,
+									#stock_code#,
+									#ceo_nm#,
+									#corp_cls#,
+									#jurir_no#,
+									#bizr_no#,
+									#adres#,
+									#hm_url#,
+									#ir_url#,
+									#phn_no#,
+									#fax_no#,
+									#induty_code#,
+									#est_dt#,
+									#acc_mt#,
+									'N')
+	</insert>
+	
+	<select id="getCompanyInfo" parameterClass="String" resultClass="companyVO">
+		SELECT * FROM COMPANY WHERE CORP_CODE = #corp_code#
+	</select>
+	
+	<update id="updateCompany" parameterClass="companyVO">
+		UPDATE COMPANY 
+		SET    CORP_NAME = #corp_name#
+			  ,CORP_NAME_ENG = #corp_name_eng#
+			  ,CEO_NM = #ceo_nm#
+			  ,JURIR_NO = #jurir_no#
+			  ,BIZR_NO = #bizr_no#
+			  ,ADRES = #adres#
+			  ,HM_URL = #hm_url#
+			  ,PHN_NO = #phn_no#
+			  ,FAX_NO = #fax_no#
+		WHERE  CORP_CODE = #corp_code#	  
+	</update>
+	
+	<sql id="selectAll">
+		select * from company
+	</sql>
+	
+	<sql id="searchCondition">
+		<dynamic prepend="where">
+			<isNotEmpty property="corp_name" prepend="and">
+				corp_name like '%'||#corp_name#||'%'
+			</isNotEmpty>
+			<isNotEmpty property="corp_add" prepend="and">
+				adres like '%'||#corp_add#||'%'
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<select id="companyList" parameterClass="map" resultClass="companyVO">
+		select B.*
+		  from (select A.*
+		  		  from (<include refid="selectAll"/>
+		  		  		<include refid="searchCondition"/>)A)B
+	</select>
+	
+	<update id="passwordChange" parameterClass="Map">
+	
+	</update>
+</sqlMap> 

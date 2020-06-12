@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="joSubmit">
+	<typeAlias alias="joSubmitVO" type="kr.or.inair.vo.Jo_SubmitVO"/>
+	<typeAlias alias="joSubmitChartsVO" type="kr.or.inair.vo.JoSubmitChartsVO"/>
+	
+	<resultMap class="joSubmitVO" id="joSubmitMap">
+		<result property="submit_num" column="submit_num"/>
+		<result property="jo_num" column="jo_num"/>
+		<result property="resume_num" column="resume_num"/>
+		<result property="pass_at" column="pass_at"/>
+		<result property="pass_date" column="pass_date"/>
+		<result property="ai_posbl" column="ai_posbl"/>
+		<result property="ai_execut" column="ai_execut"/>
+		<result property="resumeInfo" column="resume_num" select="resume.getResumeInfo"/>
+		<result property="resumeList" column="resume_num" select="resume.getResumeInfo"/>
+		<result property="jobOfferInfo" column="jo_num" select="jobOffer.getJobOfferInfo"/>
+	</resultMap>
+	
+	<insert id="insertJoSubmit" parameterClass="Map">
+		INSERT INTO JO_SUBMIT(SUBMIT_NUM
+							 ,JO_NUM
+							 ,RESUME_NUM)
+		VALUES(SEQ_JO_SUBMIT.NEXTVAL
+			  ,#jo_num#
+			  ,#resume_num#)
+	</insert>
+	
+	<select id="getjoSubmitList" parameterClass="String" resultMap="joSubmitMap">
+		SELECT * 
+		FROM   JO_SUBMIT 
+		WHERE  JO_NUM = #jo_num#
+	</select>
+	
+	<select id="getjoSubmitListCount" parameterClass="map" resultClass="int">
+		SELECT COUNT(A.RESUME_NUM) 
+		FROM   JO_SUBMIT A, RESUME B 
+		WHERE  B.INDVDL_ID = #indvdl_id#
+		AND    A.JO_NUM = #jo_num# 
+		AND    A.RESUME_NUM = B.RESUME_NUM
+	</select>
+	
+	<select id="selectJoSubmitList"	parameterClass="String" resultMap="joSubmitMap">
+		SELECT A.*
+		  FROM JO_SUBMIT A, RESUME B 
+		 WHERE B.INDVDL_ID = #indvdl_id#
+		   AND A.RESUME_NUM = B.RESUME_NUM
+	</select>
+	
+	<select id="getJoSubmitCharts" parameterClass="String" resultClass="joSubmitChartsVO">
+		SELECT A.F AS FCOUNT,
+               B.M AS MCOUNT
+        FROM (SELECT COUNT(*) AS F
+              FROM   JO_SUBMIT J, RESUME R, INDVDLMEM I
+              WHERE  J.JO_NUM = #jo_num#
+              AND    J.RESUME_NUM = R.RESUME_NUM
+              AND    R.INDVDL_ID = I.INDVDL_ID
+              AND    INDVDL_GEND = '여성') A,
+             (SELECT COUNT(*) AS M
+              FROM   JO_SUBMIT J, RESUME R, INDVDLMEM I
+              WHERE  J.JO_NUM = #jo_num#
+              AND    J.RESUME_NUM = R.RESUME_NUM
+              AND    R.INDVDL_ID = I.INDVDL_ID
+              AND    INDVDL_GEND = '남성') B
+	</select>
+	
+	<select id="getJoSubmitSalaryCharts" parameterClass="String" resultClass="joSubmitChartsVO">
+		SELECT A.SALARYSCOPE1,
+		       B.SALARYSCOPE2,
+		       C.SALARYSCOPE3,
+		       D.SALARYSCOPE4,
+		       E.SALARYSCOPE5
+		FROM  (SELECT COUNT(*) AS SALARYSCOPE1
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       <![CDATA[
+		       AND    R.SALARY_NUM <= 6) A,
+		       ]]>
+		      (SELECT COUNT(*) AS SALARYSCOPE2
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.SALARY_NUM BETWEEN 7 AND 8) B,                    
+		      (SELECT COUNT(*) AS SALARYSCOPE3
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.SALARY_NUM BETWEEN 9 AND 10) C,               
+		      (SELECT COUNT(*) AS SALARYSCOPE4
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.SALARY_NUM BETWEEN 11 AND 15) D,
+		      (SELECT COUNT(*) AS SALARYSCOPE5
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       <![CDATA[
+		       AND    R.SALARY_NUM >= 16) E
+		       ]]>
+	</select>
+	
+	<update id="finalPassIndvdlMem" parameterClass="String">
+		update jo_submit
+		   set pass_at = 'Y'
+		 where submit_num = #submit_num#
+	</update>
+	
+	<update id="finalFailIndvdlMem" parameterClass="String">
+		update jo_submit
+		   set pass_at = 'N'
+		 where submit_num = #submit_num#
+	</update>
+	
+	<update id="aiPassIndvdlMem" parameterClass="String">
+		update jo_submit
+		   set ai_posbl = 'P'
+		 where submit_num = #submit_num#
+	</update>
+
+	<update id="aiFailIndvdlMem" parameterClass="String">
+		update jo_submit
+		   set ai_posbl = 'F'
+		 where submit_num = #submit_num#
+	</update>
+	
+		<select id="getJoSubmitFinalAcademicCharts" parameterClass="String" resultClass="joSubmitChartsVO">
+		SELECT A.FIN_ACDMCR1,
+		       B.FIN_ACDMCR2,
+		       C.FIN_ACDMCR3,
+		       D.FIN_ACDMCR4,
+		       E.FIN_ACDMCR5
+		FROM  (SELECT COUNT(*) AS FIN_ACDMCR1
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.FIN_ACDMCR_NUM = 1) A,
+		      (SELECT COUNT(*) AS FIN_ACDMCR2
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.FIN_ACDMCR_NUM = 2) B,                    
+		      (SELECT COUNT(*) AS FIN_ACDMCR3
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.FIN_ACDMCR_NUM = 3) C,               
+		      (SELECT COUNT(*) AS FIN_ACDMCR4
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.FIN_ACDMCR_NUM =5) D,
+		      (SELECT COUNT(*) AS FIN_ACDMCR5
+		       FROM   JO_SUBMIT J, RESUME R
+		       WHERE  J.JO_NUM = #jo_num#
+		       AND    J.RESUME_NUM = R.RESUME_NUM
+		       AND    R.FIN_ACDMCR_NUM >= 6) E 
+	</select>
+	
+	<select id="getJoSubmitAgeCharts" parameterClass="String" resultClass="joSubmitChartsVO">
+		SELECT A.AGESCOPE1,
+		       B.AGESCOPE2,
+		       C.AGESCOPE3,
+		       D.AGESCOPE4,
+		       E.AGESCOPE5
+		FROM   (SELECT COUNT(*) AS agescope1
+		        FROM   JO_SUBMIT J, RESUME R, INDVDLMEM I
+		        WHERE  J.JO_NUM = #jo_num#
+		        AND    J.RESUME_NUM = R.RESUME_NUM
+		        AND    R.INDVDL_ID = I.INDVDL_ID
+		        AND    TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 20 AND 29) A,
+		       (SELECT COUNT(*) AS agescope2
+		        FROM   JO_SUBMIT J, RESUME R, INDVDLMEM I
+		        WHERE  J.JO_NUM = #jo_num#
+		        AND    J.RESUME_NUM = R.RESUME_NUM
+		        AND    R.INDVDL_ID = I.INDVDL_ID
+		        AND    TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 30 AND 39) B,
+		       (SELECT COUNT(*) AS agescope3
+		        FROM   JO_SUBMIT J, RESUME R, INDVDLMEM I
+		        WHERE  J.JO_NUM = #jo_num#
+		        AND    J.RESUME_NUM = R.RESUME_NUM
+		        AND    R.INDVDL_ID = I.INDVDL_ID
+		        AND    TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 40 AND 49) C,
+		       (SELECT COUNT(*) AS agescope4
+		        FROM   JO_SUBMIT J, RESUME R, INDVDLMEM I
+		        WHERE  J.JO_NUM = #jo_num#
+		        AND    J.RESUME_NUM = R.RESUME_NUM
+		        AND    R.INDVDL_ID = I.INDVDL_ID
+		        AND    TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 50 AND 59) D,
+		       (SELECT COUNT(*) AS agescope5
+		        FROM   JO_SUBMIT J, RESUME R, INDVDLMEM I
+		        WHERE  J.JO_NUM = #jo_num#
+		        AND    J.RESUME_NUM = R.RESUME_NUM
+		        AND    R.INDVDL_ID = I.INDVDL_ID
+		        AND    TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 60 AND 69) E
+	</select>
+	
+</sqlMap>

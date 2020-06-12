@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<!-- 
+		스프링 프레임웍 AOP 주요 키워드 
+			joinpoint : 분리된 관심사(공통코드)가 실행되어야 하는 메서드
+			pointcut : joinpoint의 패키지
+			advice : 분리된 관심사 코드가 실행되어야하는 시점 
+					 joinpoint(메서드) 호출 전
+					 joinpoint(메서드) 종료 후 
+					 joinpoint(메서드) 호출 이후 익셉션 발생 후(메서드 종료) 
+					 joinpoint(메서드) 호출 전/종료 후 -묶어서 하나의 시점으로 바라볼 수 있음
+			aspect : 분리된 관심사 
+			weaving : 해당 joinpoin에 해당 advice를 시점으로 aspect가 실행
+			advisor : advice + pointcut		  
+	 -->
+	 <aop:config proxy-target-class="true">
+	 	<aop:pointcut expression="execution(* kr.or.inair..*.*(..))" id="theWholeMethodPC"/>
+	 	<aop:aspect ref="logPrintAspectClazz">
+	 		<aop:before method="theWholeJoinpointCallBefore" 
+	 					pointcut-ref="theWholeMethodPC"/>
+	 		<aop:after method="theWholeJoinpointCallAfter" 
+	 					pointcut-ref="theWholeMethodPC"/>
+			<!-- throwing : 파라미터 주입값 선언 -->
+			<aop:after-throwing method="theWholeJoinpointCallThrowing"
+						throwing="ex"								
+	 					pointcut-ref="theWholeMethodPC"/>
+	 		<aop:around method="theWholeJoinpointCallAround"
+	 					pointcut-ref="theWholeMethodPC"/>
+	 	</aop:aspect>
+	 </aop:config>
+</beans>

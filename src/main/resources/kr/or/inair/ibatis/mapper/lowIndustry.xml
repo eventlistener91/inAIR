@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="lowIndustry">
+	<typeAlias alias="lowIndustryVO" type="kr.or.inair.vo.LowIndustryVO"/>
+	
+	<statement id="selectLwindutyName" resultClass="String">
+		SELECT LWINDUTY_NAME
+		FROM   LOWINDUSTRY 
+		WHERE  LWINDUTY_NUM = #lwinduty_num#
+		AND    LWINDUTY_DELETE ='N'
+	</statement>
+	
+	<statement id="lowIndustryList" resultClass="lowIndustryVO">
+		SELECT * 
+		FROM   LOWINDUSTRY 
+		WHERE  UPINDUTY_NUM = #upinduty_num# 
+		AND    LWINDUTY_DELETE ='N'
+	</statement>
+	
+	<select id="getLowIndustryList" resultClass="lowIndustryVO">
+		SELECT * 
+		FROM   LOWINDUSTRY 
+		WHERE  UPINDUTY_NUM = #upinduty_num#
+	    AND    LWINDUTY_DELETE ='N'
+	</select>
+	
+	<select id="getIndustryInfo" parameterClass="String" resultClass="lowIndustryVO">
+		SELECT A.UPINDUTY_NAME,
+		       B.LWINDUTY_NAME
+		FROM   UPINDUSTRY A, LOWINDUSTRY B 
+		WHERE  B.LWINDUTY_NUM = #lwinduty_num# 
+		AND    A.UPINDUTY_NUM = B.UPINDUTY_NUM
+		AND    LWINDUTY_DELETE ='N'
+	</select>
+	
+	
+	<select id="adminLowIndustryList" resultClass="lowIndustryVO" parameterClass="map">
+		SELECT B.*
+        FROM (SELECT ROWNUM RNUM, A.*
+        	  FROM (SELECT *
+        	  		 FROM LOWINDUSTRY
+        	  		WHERE LWINDUTY_DELETE='N'
+                    AND UPINDUTY_NUM = #upinduty_num# 
+        	  		ORDER BY LWINDUTY_NUM)A)B
+		ORDER BY B.RNUM DESC
+	</select>
+	
+	<insert id="insertLowIndustry" parameterClass="lowIndustryVO">
+		<selectKey keyProperty="lwinduty_num">
+			SELECT SEQ_LOWINDUSTRY.NEXTVAL FROM DUAL
+		</selectKey>
+			INSERT INTO LOWINDUSTRY(LWINDUTY_NUM
+							 		,UPINDUTY_NUM
+							 		,LWINDUTY_NAME)
+							VALUES(#lwinduty_num#
+								   ,#upinduty_num#
+						   		   ,#lwinduty_name#)
+	</insert>
+	
+	<delete id="deleteLowIndustry" parameterClass="map">
+		UPDATE LOWINDUSTRY
+		   SET LWINDUTY_DELETE = 'Y'
+		 WHERE LWINDUTY_NUM = #lwinduty_num#
+	</delete>
+	
+	<select id="getLowIndustry" resultClass="lowIndustryVO">
+		SELECT * FROM LOWINDUSTRY WHERE LWINDUTY_DELETE = 'N'
+   	</select>
+	
+	
+</sqlMap> 

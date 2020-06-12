@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="jobOfferFile">
+	<typeAlias alias="jobOfferFileVO" type="kr.or.inair.vo.Job_Offer_FileVO"/>
+	
+	<insert id="insertJobOfferFile" parameterClass="jobOfferFileVO">
+		INSERT INTO JOB_OFFER_FILE(JO_FILE_NUM
+								  ,JO_NUM
+								  ,JO_FILE_NAME
+								  ,JO_FILE_SAVENAME
+								  ,JO_FILE_EVENTN
+								  ,JO_FILE_SIZE)
+		VALUES(SEQ_JOB_OFFER_FILE.NEXTVAL
+			  ,#jo_num#
+			  ,#jo_file_name#
+			  ,#jo_file_savename#
+			  ,#jo_file_eventn#
+			  ,#jo_file_size#)						  
+	</insert>	
+	
+	<select id="getJobOfferFileList" parameterClass="String" resultClass="jobOfferFileVO">
+		SELECT * 
+		FROM   JOB_OFFER_FILE 
+		WHERE  JO_NUM = #jo_num#
+	</select>
+</sqlMap> 

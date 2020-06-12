@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="upindustry">
+	<typeAlias alias="upIndustryVO" type="kr.or.inair.vo.UpIndustryVO"/>
+	
+	<statement id="selectUpindutyName" resultClass="String">
+		SELECT UPINDUTY_NAME
+		FROM   UPINDUSTRY 
+		WHERE  UPINDUTY_NUM = #upinduty_num#
+		AND    UPINDUTY_DELETE = 'N'
+	</statement>
+	
+	<select id="getUpIndustryList" resultClass="upIndustryVO">
+		SELECT * 
+		FROM   UPINDUSTRY WHERE UPINDUTY_DELETE = 'N'
+	</select>
+	
+	<select id="selectAllUpINDUTYList" resultClass="upIndustryVO" parameterClass="map">
+        SELECT B.*
+        FROM (SELECT ROWNUM RNUM, A.*
+        	  FROM ( SELECT *
+        	  		 FROM  UPINDUSTRY
+        	  		 WHERE UPINDUTY_DELETE='N'
+        	  		 ORDER BY UPINDUTY_NUM)A)B
+        <![CDATA[
+		WHERE  B.RNUM <= #startCount#
+		AND    B.RNUM >= #endCount#
+		]]>
+		ORDER BY B.RNUM DESC
+	</select>
+	
+	<select id="totalUpINDUTY" resultClass="string">
+		SELECT COUNT(UPINDUTY_NUM)
+		FROM   UPINDUSTRY
+		WHERE  UPINDUTY_DELETE = 'N'
+	</select>
+	
+	<insert id="insertUpINDUTY" parameterClass="upIndustryVO">
+		<selectKey keyProperty="upinduty_num">
+			SELECT SEQ_UPINDUSTRY.NEXTVAL FROM DUAL
+		</selectKey>
+			INSERT INTO UPINDUSTRY(UPINDUTY_NUM
+								 ,UPINDUTY_NAME)
+						VALUES(#upinduty_num#
+							 ,#upinduty_name#)
+	</insert>
+	
+	<delete id="deleteUpINDUTY" parameterClass="map">
+		UPDATE UPINDUSTRY
+		   SET UPINDUTY_DELETE = 'Y'
+		WHERE UPINDUTY_NUM = #upinduty_num#
+	</delete>
+
+	
+</sqlMap> 

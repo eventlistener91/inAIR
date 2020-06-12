@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="news">
+
+	<typeAlias alias="newsVO" type="kr.or.inair.vo.NewsVO"/>
+	
+	<select id="getNewsList" parameterClass="String" resultClass="newsVO">
+		SELECT * 
+		  FROM NEWS 
+		 WHERE TO_CHAR(NEWS_RGSDE, 'YYYY/MM/DD/HH24') = TO_CHAR(sysdate, 'YYYY/MM/DD/HH24')
+		<dynamic>
+			<isNotEqual compareValue="">
+				AND KEYWORD_NUM = (SELECT KEYWORD_NUM
+								     FROM NEWSKEYWORD
+								    WHERE KEYWORD_CN = #clickKeyWord#
+								      AND TO_CHAR(KEYWORD_RGSDE, 'YYYY/MM/DD/HH24') = TO_CHAR(sysdate, 'YYYY/MM/DD/HH24'))
+			</isNotEqual>
+		</dynamic>
+	</select>
+	
+	<insert id="insertNews" parameterClass="newsVO">
+		INSERT INTO NEWS VALUES(SEQ_NEWS.NEXTVAL, #keyword_num#, #news_sj#, #news_cn#, #news_link#, sysdate)
+	</insert>
+	
+</sqlMap> 

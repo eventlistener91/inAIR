@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="finalAcademic">
+	<typeAlias alias="finalAcademicVO" type="kr.or.inair.vo.Final_AcademicVO"/>
+	
+	<statement id="selectfinAcdmcr" resultClass="String">
+		SELECT FIN_ACDMCR 
+		FROM   FINAL_ACADEMIC 
+		WHERE  FIN_ACDMCR_NUM = #fin_acdmcr_num#
+	</statement>
+	
+	<select id="getFinalAcademeicList" resultClass="finalAcademicVO">
+		SELECT * FROM FINAL_ACADEMIC
+		WHERE  FIN_ACDMCR_STATE = 0
+	</select>
+	
+	<select id="getJobOfferFinalAcademicList" resultClass="finalAcademicVO">
+		SELECT * FROM FINAL_ACADEMIC
+	</select>
+</sqlMap> 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="uppro">
+	<typeAlias alias="upPROVO" type="kr.or.inair.vo.UpProVO"/>
+	
+	<select id="getUpPROList" resultClass="upPROVO">
+		SELECT * 
+		FROM   UPPRO  
+		WHERE  UPPRO_DELETE = 'N' 
+	</select>
+	
+	<select id="selectAllPROList" resultClass="upPROVO" parameterClass="map">
+        SELECT B.*
+        FROM (SELECT ROWNUM RNUM, A.*
+        	  FROM (SELECT *
+        	  		 FROM UPPRO
+        	  		WHERE UPPRO_DELETE='N'
+        	  		ORDER BY UPPRO_NUM)A)B
+        <![CDATA[
+		WHERE  B.RNUM <= #startCount#
+		AND    B.RNUM >= #endCount#
+		]]>
+		ORDER BY B.RNUM DESC
+	</select>
+	
+	<select id="totalUpPRO" resultClass="string">
+		SELECT COUNT(UPPRO_NUM)
+		FROM UPPRO
+		WHERE UPPRO_DELETE = 'N'
+	</select>
+	
+	<insert id="insertUpPRO" parameterClass="upPROVO">
+		<selectKey keyProperty="uppro_num">
+			SELECT SEQ_UPPRO.NEXTVAL FROM DUAL
+		</selectKey>
+			INSERT INTO UPPRO(UPPRO_NUM
+							 ,UPPRO_NAME)
+					VALUES(#uppro_num#
+						 ,#uppro_name#)
+	</insert>
+	
+	<delete id="deleteUpPRO" parameterClass="map">
+		UPDATE UPPRO
+		   SET UPPRO_DELETE = 'Y'
+		WHERE UPPRO_NUM = #uppro_num#
+	</delete>
+	
+	
+</sqlMap> 

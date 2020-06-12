@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="notice">
+	<typeAlias alias="NoticeVO" type="kr.or.inair.vo.NoticeVO"/>
+	
+	<sql id="selectAll">
+		SELECT * FROM NOTICE
+		 WHERE NOTICE_DELETE = 'N'
+	</sql>
+	
+	
+	<sql id="searchCondition">
+		<dynamic prepend="AND">
+				<isEqual property="search_keycode" compareValue="TOTAL" open="(" close=")">
+				   NOTICE_CN LIKE '%'||#search_keyword#||'%' 	
+				</isEqual>
+				
+				<isEqual property="search_keycode" compareValue="공지">
+					 NOTICE_KIND = #search_keycode#
+				   AND NOTICE_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="안내">
+					 NOTICE_KIND = #search_keycode#
+				   AND NOTICE_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="기타">
+					 NOTICE_KIND = #search_keycode#
+				   AND NOTICE_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+		</dynamic>
+	</sql>
+	
+	<sql id="searchAdminCondition">
+		<dynamic prepend="AND">
+			<isNotEmpty property="search_keycode">
+				<isEqual property="search_keycode" compareValue="TOTAL" open="(" close=")">
+				   NOTICE_CN LIKE '%'||#search_keyword#||'%' 	
+				</isEqual>
+				
+				<isEqual property="search_keycode" compareValue="공지">
+					 NOTICE_KIND = #search_keycode#
+				   AND NOTICE_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				
+				<isEqual property="search_keycode" compareValue="안내">
+					 NOTICE_KIND = #search_keycode#
+				   AND NOTICE_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="기타">
+					 NOTICE_KIND = #search_keycode#
+				   AND NOTICE_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic prepend="AND">
+			<isNotEmpty property="search_group">
+				NOTICE_GROUP LIKE '%'||#search_group#||'%'
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	
+	
+	<select id="totalNoticeList" resultClass="NoticeVO" parameterClass="map">
+		SELECT B.*
+		  FROM (SELECT ROWNUM rnum, A.*
+				FROM(<include refid="selectAll"/>
+				     <include refid="searchCondition"/>
+					 AND NOTICE_GROUP='전체회원') A) B
+			<![CDATA[
+			WHERE B.RNUM <= #startCount#
+			  AND B.RNUM >= #endCount#
+			]]>
+		 ORDER BY B.RNUM DESC		
+	</select>
+	
+	<select id="totalNoticeCount" parameterClass="map" resultClass="string">
+	<![CDATA[
+		  SELECT COUNT(NOTICE_NUM)
+		    FROM NOTICE
+		   WHERE NOTICE_DELETE = 'N'
+		     AND NOTICE_GROUP='전체회원'
+	 ]]> 
+	     <include refid="searchCondition"/>
+	</select>
+	
+	
+	<select id="indvdlNoticeList" resultClass="NoticeVO" parameterClass="map">
+		SELECT B.*
+		  FROM(SELECT ROWNUM rnum,A.*
+			     FROM(<include refid="selectAll"/>
+				      <include refid="searchCondition"/>
+			          AND NOTICE_GROUP='개인회원')A)B
+	    <![CDATA[
+	     WHERE B.RNUM <= #startCount#
+		   AND B.RNUM >= #endCount#
+		]]>
+		 ORDER BY B.RNUM DESC		
+	</select>
+	
+	<select id="indvdlNoticeCount" parameterClass="map" resultClass="string">
+	<![CDATA[
+	   SELECT COUNT(NOTICE_NUM)
+		 FROM NOTICE
+		WHERE NOTICE_DELETE = 'N'
+		  AND NOTICE_GROUP='개인회원'
+	 ]]> 
+	 <include refid="searchCondition"/>
+	</select>
+	
+    <select id="COMNoticeList" resultClass="NoticeVO" parameterClass="map">
+		SELECT B.*
+			FROM(SELECT ROWNUM rnum,A.*
+				   FROM(<include refid="selectAll"/>
+				        <include refid="searchCondition"/>
+			        AND NOTICE_GROUP='기업회원')A)B
+	    <![CDATA[
+	     WHERE B.RNUM <= #startCount#
+		   AND B.RNUM >= #endCount#
+		]]>
+		 ORDER BY B.RNUM DESC		
+	</select>
+	
+	<select id="COMNoticeCount" parameterClass="map" resultClass="string">
+	<![CDATA[
+	   SELECT COUNT(NOTICE_NUM)
+		 FROM NOTICE
+		WHERE NOTICE_DELETE = 'N'
+		  AND NOTICE_GROUP='기업회원'
+	 ]]> 
+	  <include refid="searchCondition"/>
+	</select>
+	
+	<select id="noticeInfo" parameterClass="map" resultClass="NoticeVO">
+		<include refid="selectAll"/>
+		AND NOTICE_NUM = #notice_num#
+	</select>
+	
+	<select id="adminTotalNotice" resultClass="NoticeVO" parameterClass="map">
+		SELECT B.*
+		FROM( SELECT ROWNUM rnum, A.*
+ 			FROM (<include refid="selectAll"/>
+ 				  <include refid="searchAdminCondition"/>
+			    	  ORDER BY NOTICE_NUM) A) B
+			<![CDATA[
+			 WHERE B.RNUM <= #startCount#
+			   AND B.RNUM >= #endCount#
+			]]>
+	  	  ORDER BY B.RNUM DESC 
+	</select>
+	
+	<select id="adminTotalCount" parameterClass="map" resultClass="string">
+	<![CDATA[
+	   SELECT COUNT(NOTICE_NUM)
+		 FROM NOTICE
+		WHERE NOTICE_DELETE = 'N'
+	 ]]> 
+	  <include refid="searchAdminCondition"/>
+	</select>
+	
+	<insert id="insertNoticeboard" parameterClass="NoticeVO">
+		<selectKey keyProperty="notice_num">
+			SELECT SEQ_NOTICE.NEXTVAL FROM DUAL 
+		</selectKey>
+		INSERT INTO NOTICE(ADMIN_ID
+						  ,NOTICE_CN
+						  ,NOTICE_NUM
+						  ,NOTICE_SJ
+						  ,NOTICE_GROUP
+						  ,NOTICE_KIND)
+					VALUES(#admin_id#
+						  ,#notice_cn#
+						  ,#notice_num#
+						  ,#notice_sj#
+						  ,#notice_group#
+						  ,#notice_kind#)
+	</insert>
+
+	<update id="updateNoticeboard" parameterClass="NoticeVO">
+		UPDATE NOTICE
+		   SET NOTICE_SJ = #notice_sj#
+		  	  ,NOTICE_GROUP = #notice_group#
+		  	  ,NOTICE_KIND = #notice_kind#
+		  	  ,NOTICE_CN = #notice_cn#
+		WHERE NOTICE_NUM = #notice_num#	  
+	</update>
+ 
+ 	<delete id="deleteNoticeboard" parameterClass="map">
+ 		UPDATE NOTICE
+ 		   SET NOTICE_DELETE = 'Y'
+ 		WHERE NOTICE_NUM = #notice_num#
+ 	</delete>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</sqlMap> 

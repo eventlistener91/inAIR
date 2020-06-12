@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="charResult">
+	<typeAlias alias="charResultVO" type="kr.or.inair.vo.CHAR_ResultVO"/>
+	<typeAlias alias="charDetaVO" type="kr.or.inair.vo.CHAR_DETAVO"/>
+	<typeAlias alias="charEleVO" type="kr.or.inair.vo.CHAR_ELEVO"/>
+	
+	<statement id="charResultList" resultClass="charResultVO">
+		SELECT *
+		  FROM CHAR_RESULT
+		 WHERE CHAR_NUM = #char_num#
+	</statement>
+	
+	<insert id="insertCharResult" parameterClass="Map">
+		<selectKey keyProperty="char_res" resultClass="String">
+			SELECT CHAR_DETAIL_DC FROM CHAR_DETA WHERE CHAR_ELEMENT_NUM = #char_element_num# AND CHAR_DETAIL_LEV = #char_detail_lev# 
+		</selectKey>
+		INSERT INTO CHAR_RESULT(CHAR_RES_NUM, CHAR_RES, CHAR_NUM, CHAR_ELEMENT_NUM, CHAR_SCORE)
+			   VALUES(SEQ_CHARLIST.NEXTVAL
+			  		  , #char_res#				
+			  		  , #char_num#
+			  		  , #char_element_num#
+			  		  , #char_score# ) 
+	</insert>
+
+	<select id="selectCharResult" resultClass="charResultVO">
+		SELECT RES.CHAR_RES_NUM, RES.CHAR_NUM, RES.CHAR_RES, RES.CHAR_SCORE, CHAR_ELEMENT_NUM, ELE.CHAR_ELEMENT
+		  FROM CHAR_RESULT RES NATURAL JOIN CHAR_ELE ELE
+		 WHERE CHAR_NUM = #char_num#
+		 ORDER BY CHAR_ELEMENT_NUM
+	</select>
+	
+	<select id="charScoreAVG" resultClass="charResultVO">
+		select char_element_num, avg(char_score) as scoreAVG
+		  from char_result
+		 group by char_element_num
+		 order by char_element_num
+	</select>
+	
+</sqlMap>

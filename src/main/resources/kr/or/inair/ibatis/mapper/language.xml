@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="language">
+	<typeAlias alias="languageVO" type="kr.or.inair.vo.LanguageVO"/>
+	
+	<sql id="searchCondition">
+		<dynamic prepend="AND">
+			<isNotEmpty property="search_keyword">	
+					LANG_KIND LIKE '%'||#search_keyword#||'%'
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<sql id="selectListAll">
+		<![CDATA[
+			SELECT * FROM LANGUAGE
+			WHERE LANG_DELETE = 'N'
+		]]>
+	</sql>
+	
+	<select id="getLanguageList" resultClass="languageVO">
+		SELECT * 
+		FROM   LANGUAGE  
+	</select>
+	
+	<select id="adminLanguageList" resultClass="languageVO" parameterClass="map">
+		SELECT B.*
+		FROM( SELECT ROWNUM rnum, A.*
+		  FROM(<include refid="selectListAll"/>
+		  	   <include refid="searchCondition"/>
+		  	   		ORDER BY LANG_NUM)A) B
+		<![CDATA[
+		WHERE B.RNUM <= #startCount# 
+		  AND B.RNUM >= #endCount# 
+		]]>
+		ORDER BY B.RNUM DESC	
+	</select>
+	
+	<select id="totalCount" parameterClass="map" resultClass="string">
+	   <![CDATA[
+		SELECT COUNT(LANG_NUM)
+		  FROM LANGUAGE
+		 WHERE LANG_DELETE ='N' 
+		 ]]> 
+		<include refid="searchCondition"/>
+	</select>
+	
+	<insert id="insertLanguage" parameterClass="languageVO">
+		<selectKey keyProperty="lang_num">
+		  SELECT SEQ_LANGUAGE.NEXTVAL FROM DUAL
+		</selectKey>
+		  INSERT INTO LANGUAGE(LANG_NUM
+		  					  ,LANG_KIND)
+		  			  VALUES(#lang_num#
+		  			  		,#lang_kind#)
+	</insert>
+	
+	<delete id="deleteLanguage" parameterClass="map">
+	      UPDATE LANGUAGE
+	      	 SET LANG_DELETE = 'Y'
+	       WHERE LANG_NUM = #lang_num#
+	</delete>
+	
+	
+	
+	
+</sqlMap> 

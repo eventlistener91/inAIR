@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="charList">
+	<typeAlias alias="charListVO" type="kr.or.inair.vo.CHAR_ListVO"/>
+	
+	<resultMap id="charListMap" class="charListVO">
+		<result property="char_num" column="char_num"></result>
+		<result property="char_date" column="char_date"></result>
+		<result property="indvdl_id" column="indvdl_id"></result>
+		<result property="result" column="char_num" select="charResult.charResultList"></result>
+	</resultMap>
+
+	<insert id="insertCharList" parameterClass="map">
+		<selectKey keyProperty="char_num" resultClass="String">
+			SELECT SEQ_CHARLIST.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO CHAR_LIST(CHAR_NUM, CHAR_DATE, INDVDL_ID)
+			   VALUES(#char_num#, to_date(SYSDATE, 'YYYY-MM-DD'), #indvdl_id#)
+	</insert>
+	
+	<select id="selectCharList" resultMap="charListMap">
+		SELECT * 
+		  FROM CHAR_LIST
+		 ORDER BY CHAR_NUM DESC
+	</select>
+	
+	
+</sqlMap>

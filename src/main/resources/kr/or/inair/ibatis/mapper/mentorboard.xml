@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="mentorboard">
+	<typeAlias alias="MentorVO" type="kr.or.inair.vo.MentorVO"/>
+	<typeAlias alias="MentorLowproVO" type="kr.or.inair.vo.MentorLowproVO"/>
+	
+	<resultMap id="mentorboardResultMap" class="MentorVO">
+		<result property="mentor_num" column="mentor_num"/>
+		<result property="mentor_cn" column="mentor_cn"/>
+		<result property="mentor_delete" column="mentor_delete"/>
+		<result property="mentor_depth" column="mentor_depth"/>
+		<result property="mentor_group" column="mentor_group"/>
+		<result property="mentor_hit" column="mentor_hit"/>
+		<result property="mentor_rgsde" column="mentor_rgsde"/>
+		<result property="mentor_sj" column="mentor_sj"/>
+		<result property="mentor_sn" column="mentor_sn"/>
+		<result property="indvdl_id" column="indvdl_id"/>
+		<result property="items" column="mentor_num" select="mentorboard_file.mentorboardfileitemList"/>
+	</resultMap>
+	
+	
+	<sql id ="selectListALL">
+		<![CDATA[
+		SELECT * FROM MENTOR
+		 WHERE MENTOR_DELETE = 'N'
+		   AND MENTOR_DEPTH < 1
+		 ]]> 
+	</sql>
+	
+	<sql id="selectAll">
+		SELECT * FROM MENTOR
+		 WHERE MENTOR_DELETE ='N' 
+	</sql>
+	
+	
+	<sql id="searchCondition">
+		<dynamic prepend="AND">
+			<isNotEmpty property="search_keyword">
+				<isEqual property="search_keycode" compareValue="TOTAL" open="(" close=")">
+						MENTOR_SJ LIKE '%'||#search_keyword#||'%'
+					 OR MENTOR_CN LIKE '%'||#search_keyword#||'%'
+					 OR INDVDL_ID LIKE '%'||#search_keyword#||'%'  	
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="SJ">
+					 MENTOR_SJ LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="CN">
+					 MENTOR_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="ID">
+					 INDVDL_ID LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	
+	
+	<select id="mentorList" resultClass="MentorVO" parameterClass="map">
+		SELECT B.*
+		  FROM( SELECT ROWNUM rnum, A.*
+ 			      FROM (<include refid="selectListALL"/>
+ 				        <include refid="searchCondition"/>
+			    	   ORDER BY MENTOR_GROUP, MENTOR_SJ DESC) A) B
+		<![CDATA[
+		WHERE B.RNUM <= #startCount#  
+		  AND B.RNUM >= #endCount#  
+ 		]]>  
+	    ORDER BY B.RNUM DESC 
+	</select>
+	
+    <select id="totalCount" parameterClass="map" resultClass="string">
+		<![CDATA[
+	 		SELECT COUNT(MENTOR_SN) 
+			  FROM MENTOR 
+			 WHERE MENTOR_DELETE ='N'
+			   AND MENTOR_DEPTH < 1
+		 ]]>  
+		<include refid="searchCondition"/>
+	</select>
+	
+	<select id="mentorPopularity" resultClass="MentorVO">
+	<![CDATA[
+		   SELECT * 
+             FROM (SELECT *
+                     FROM MENTOR
+                    ORDER BY MENTOR_HIT DESC)
+                    WHERE ROWNUM <= 5
+                      AND MENTOR_HIT > 0
+                      AND MENTOR_DELETE = 'N'
+	]]>  
+	</select>	
+	
+	<select id="mentorLowproList" resultClass="MentorLowproVO" parameterClass="map"> 
+		 SELECT DISTINCT 
+                S.LOWPRO_NAME 
+           FROM RESUME P,CAREER T,LOWPRO S
+          WHERE P.RESUME_NUM = T.RESUME_NUM
+            AND T.LOWPRO_NUM = S.LOWPRO_NUM
+            AND INDVDL_ID = #indvdl_id#
+	</select>
+	
+
+	
+	
+	
+	
+	
+	
+	<select id="totalComment" resultClass="string" parameterClass="map">
+		<![CDATA[
+		SELECT COUNT(*) FROM MENTOR
+		 WHERE MENTOR_DELETE = 'N'
+		   AND MENTOR_DEPTH >0
+           AND MENTOR_GROUP = #mentor_group#
+	 	]]> 
+	</select>
+	
+	<update id="totalCommentUpdate">
+		UPDATE MENTOR
+		   SET MENTOR_COMMENT = #mentor_comment#
+		 WHERE MENTOR_NUM = #mentor_num#
+	</update>
+	
+	<select id="mentorInfo" parameterClass="map" resultMap="mentorboardResultMap">
+		<include refid="selectAll"/>
+		AND MENTOR_NUM = #mentor_num#
+	</select>
+	
+	<update id="updateHIT" parameterClass="map">
+		UPDATE MENTOR
+		   SET MENTOR_HIT = MENTOR_HIT +1
+		 WHERE MENTOR_NUM = #mentor_num#
+	</update>
+
+	<update id="updateMentorboard" parameterClass="MentorVO">
+	 	 UPDATE MENTOR
+	 	 	SET MENTOR_SJ = #mentor_sj#
+	 	 	   ,MENTOR_CN = #mentor_cn#
+	 	  WHERE MENTOR_NUM = #mentor_num#
+	</update>
+	
+	<delete id="deleteMentorboard" parameterClass="map">
+		UPDATE MENTOR
+		   SET MENTOR_DELETE = 'Y'
+		 WHERE MENTOR_NUM = #mentor_num#
+	</delete>
+	
+	<insert id="insertMentorboard" parameterClass="MentorVO">
+		<selectKey keyProperty="mentor_num" resultClass="string">
+			SELECT SEQ_MENTOR.NEXTVAL FROM DUAL
+		</selectKey>
+			INSERT INTO MENTOR(MENTOR_NUM
+							  ,MENTOR_SJ
+							  ,MENTOR_CN
+							  ,MENTOR_GROUP
+							  ,INDVDL_ID)
+					    VALUES(#mentor_num#
+					    	  ,#mentor_sj#
+					    	  ,#mentor_cn#
+					    	  ,#mentor_num#
+					    	  ,#indvdl_id#)
+	</insert>
+	
+	<select id="incrementSEQ" parameterClass="MentorVO" resultClass="string">
+		SELECT MAX(MENTOR_SN)+1
+		  FROM MENTOR
+		 WHERE MENTOR_GROUP = #mentor_group#
+	</select>
+	
+	<update id="updateSEQ" parameterClass="MentorVO">
+	     UPDATE MENTOR
+	     	SET MENTOR_SN = MENTOR_SN +1
+	      WHERE MENTOR_GROUP = #mentor_group#
+	      	AND MENTOR_SN > #mentor_sn# 
+	</update>
+	
+	<select id="mentorboardComment" resultClass="MentorVO" parameterClass="map">
+		SELECT B.*
+		  FROM(	SELECT ROWNUM rnum, A.*
+		  		  FROM(SELECT * FROM MENTOR
+		  		  		ORDER BY MENTOR_GROUP,MENTOR_SN DESC)A)B
+		  		<![CDATA[
+		  		  WHERE B.MENTOR_GROUP=#mentor_group#
+					AND B.MENTOR_DELETE ='N'
+					AND B.MENTOR_DEPTH > 0		  		
+		  		]]>
+				ORDER BY B.RNUM DESC
+	</select>
+	
+	<insert id="insertMentorboardReply" parameterClass="MentorVO">
+		<selectKey keyProperty="mentor_num">
+				SELECT SEQ_MENTOR.NEXTVAL FROM DUAL
+		</selectKey>
+				INSERT INTO MENTOR(MENTOR_NUM
+								  ,MENTOR_SJ
+								  ,MENTOR_CN
+								  ,MENTOR_GROUP
+								  ,MENTOR_LOWPRO_NAME
+								  ,INDVDL_ID
+								  ,MENTOR_SN
+								  ,MENTOR_DEPTH)
+						    VALUES(#mentor_num#
+						    	  ,#mentor_sj#
+						    	  ,#mentor_cn#
+						    	  ,#mentor_group#
+						    	  ,#mentor_lowpro_name#
+						    	  ,#indvdl_id#
+						    	  ,#mentor_sn#
+						    	  ,#mentor_depth#)	
+	</insert>
+	
+	<update id="updateComment" parameterClass="MentorVO">
+		 UPDATE MENTOR
+	 	 	SET MENTOR_CN = #mentor_cn#
+	 	  WHERE MENTOR_NUM = #mentor_num#
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap> 

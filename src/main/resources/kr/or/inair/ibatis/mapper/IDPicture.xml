@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="idPicture">
+	<typeAlias alias="idPictureVO" type="kr.or.inair.vo.IDPictureVO"/>
+	
+	<statement id="idPictureList" resultClass="idPictureVO">
+		select *
+		  from idpicture
+		 where indvdl_id = #indvdl_id#
+	</statement>
+	
+	<select id="idPictureInfo" parameterClass="map" resultClass="idPictureVO">
+		select *
+		  from idpicture
+		 where idpic_file_num = #idpic_file_num#
+	</select>
+	
+	<insert id="insertIDPicture" parameterClass="idPictureVO">
+		<selectKey keyProperty="idpic_file_num">
+			select seq_idpicture.nextval from dual
+		</selectKey>
+		insert into idpicture(idpic_file_num, indvdl_id, idpic_file_name, idpic_file_savename, idpic_file_eventn, idpic_file_size, idpic_file_delete)
+					values (#idpic_file_num#, #indvdl_id#, #idpic_file_name#, #idpic_file_savename#, #idpic_file_eventn#, #idpic_file_size#, 'N')
+	</insert>
+	
+	<update id="updateIDPicture" parameterClass="idPictureVO">
+		update idpicture
+		   set idpic_file_name = #idpic_file_name#
+			   ,idpic_file_savename = #idpic_file_savename#
+			   ,idpic_file_eventn = #idpic_file_eventn#
+			   ,idpic_file_size = #idpic_file_size#
+		 where idpic_file_num = #idpic_file_num# 
+	</update>
+	
+</sqlMap> 

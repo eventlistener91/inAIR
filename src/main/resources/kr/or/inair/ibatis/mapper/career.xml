@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="career">
+	<typeAlias alias="careerVO" type="kr.or.inair.vo.CareerVO"/>
+	
+	<resultMap id="careerInfoList" class="careerVO">
+		<result property="career_num" column="career_num" />
+		<result property="com_name" column="com_name" />
+		<result property="com_adres1" column="com_adres1" />
+		<result property="com_adres2" column="com_adres2" />
+		<result property="salary" column="salary" />
+		<result property="job" column="job" />
+		<result property="tchnlgy" column="tchnlgy" />
+		<result property="com_encpn" column="com_encpn" />
+		<result property="com_retire" column="com_retire" />
+		<result property="clsf_num" column="clsf_num" />
+		<result property="uppro_num" column="uppro_num" />
+		<result property="lowpro_num" column="lowpro_num" />
+		<result property="upinduty_num" column="upinduty_num" />
+		<result property="lwinduty_num" column="lwinduty_num" />
+		<result property="lwinduty_num" column="lwinduty_num" />
+		<result property="resume_num" column="resume_num" />
+		<result property="lowproList" column="uppro_num" select="lowpro.lowproList" />
+		<result property="lwindutyList" column="upinduty_num" select="lowIndustry.lowIndustryList" />
+	</resultMap>
+	
+	<statement id="careerList" resultMap="careerInfoList">
+		SELECT A.CAREER_NUM
+			  ,A.COM_NAME
+			  ,A.COM_ADRES1
+			  ,A.COM_ADRES2
+			  ,A.SALARY
+			  ,A.JOB
+			  ,A.TCHNLGY
+			  ,TO_CHAR(A.COM_ENCPN, 'YYYY-MM-DD') AS COM_ENCPN
+			  ,TO_CHAR(A.COM_RETIRE, 'YYYY-MM-DD') AS COM_RETIRE
+			  ,A.CLSF_NUM
+              ,B.UPPRO_NUM
+			  ,A.LOWPRO_NUM
+              ,C.UPINDUTY_NUM
+			  ,A.LWINDUTY_NUM
+			  ,A.RESUME_NUM 
+		FROM   CAREER A, (SELECT * FROM LOWPRO) B, (SELECT * FROM LOWINDUSTRY) C
+		WHERE  RESUME_NUM = #resume_num# 
+        AND    B.LOWPRO_NUM = A.LOWPRO_NUM
+        AND    C.LWINDUTY_NUM = A.LWINDUTY_NUM 
+        ORDER BY A.COM_ENCPN
+	</statement>
+	
+	<insert id="insertCareerInfo" parameterClass="careerVO">
+		INSERT INTO CAREER(CAREER_NUM
+						  ,COM_NAME
+						  ,COM_ADRES1
+						  ,COM_ADRES2
+						  ,SALARY
+						  ,JOB
+						  ,TCHNLGY
+						  ,COM_ENCPN
+						  ,COM_RETIRE
+						  ,CLSF_NUM
+						  ,LOWPRO_NUM
+						  ,LWINDUTY_NUM
+						  ,RESUME_NUM)
+		VALUES(SEQ_CAREER.NEXTVAL
+			  ,#com_name#
+			  ,#com_adres1#
+			  ,#com_adres2#
+			  ,#salary#
+			  ,#job#
+			  ,#tchnlgy#
+			  ,#com_encpn#
+			  ,#com_retire#
+			  ,#clsf_num#
+			  ,#lowpro_num#
+			  ,#lwinduty_num#
+			  ,#resume_num#)						  
+	</insert>	
+	
+	<update id="updateCareerInfo" parameterClass="careerVO">
+		UPDATE CAREER 
+		SET    COM_NAME = #com_name#
+			  ,COM_ADRES1 = #com_adres1#
+			  ,COM_ADRES2 = #com_adres2#
+			  ,SALARY = #salary#
+			  ,JOB = #job#
+			  ,TCHNLGY = #tchnlgy#
+			  ,COM_ENCPN = #com_encpn#
+			  ,COM_RETIRE = #com_retire#
+			  ,CLSF_NUM = #clsf_num#
+			  ,LOWPRO_NUM = #lowpro_num#
+			  ,LWINDUTY_NUM = #lwinduty_num#
+		WHERE  CAREER_NUM = #career_num#	  
+	</update>
+</sqlMap> 

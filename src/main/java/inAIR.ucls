@@ -1,0 +1,2224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <interface id="1" language="java" name="kr.or.inair.companymember.joboffer.service.ICompanyMEMJobOfferService" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/joboffer/service/ICompanyMEMJobOfferService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1211" y="1047"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="2" language="java" name="kr.or.inair.companymember.joboffer.service.ICompanyMEMJobOfferServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/joboffer/service/ICompanyMEMJobOfferServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1159" y="943"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="kr.or.inair.companymember.joboffersubmit.dao.ICompanyMEMJOSubmitDaoImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/joboffersubmit/dao/ICompanyMEMJOSubmitDaoImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="974" y="1410"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="kr.or.inair.companymember.joboffersubmit.service.ICompanyMEMJOSubmitServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/joboffersubmit/service/ICompanyMEMJOSubmitServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="977" y="1206"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="kr.or.inair.companymember.joboffersubmit.service.ICompanyMEMJOSubmitService" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/joboffersubmit/service/ICompanyMEMJOSubmitService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="979" y="1101"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="6" language="java" name="kr.or.inair.companymember.joboffer.dao.ICompanyMEMJobOfferDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/joboffer/dao/ICompanyMEMJobOfferDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="956" y="1026"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="7" language="java" name="kr.or.inair.companymember.joboffersubmit.dao.ICompanyMEMJOSubmitDao" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/joboffersubmit/dao/ICompanyMEMJOSubmitDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="982" y="1303"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="8" language="java" name="kr.or.inair.companymember.joboffer.dao.ICompanyMEMJobOfferDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/joboffer/dao/ICompanyMEMJobOfferDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="958" y="918"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="kr.or.inair.companymember.companymember.dao.ICompanyMEMDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/companymember/dao/ICompanyMEMDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1892" y="941"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="10" language="java" name="kr.or.inair.companymember.companymember.dao.ICompanyMEMDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/companymember/dao/ICompanyMEMDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2130" y="914"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="kr.or.inair.companymember.companymember.service.ICompanyMEMServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/companymember/service/ICompanyMEMServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1640" y="943"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="12" language="java" name="kr.or.inair.companymember.companymember.service.ICompanyMEMService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/companymember/service/ICompanyMEMService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1382" y="945"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="13" language="java" name="kr.or.inair.companymember.aianswer.dao.ICompanyMEMAIAnswerDaoImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/aianswer/dao/ICompanyMEMAIAnswerDaoImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="980" y="1529"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="kr.or.inair.companymember.ailist.dao.ICompanyMEMAIListDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/ailist/dao/ICompanyMEMAIListDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2096" y="1263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="15" language="java" name="kr.or.inair.companymember.airesult.service.ICompanyMEMAIResultService" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/airesult/service/ICompanyMEMAIResultService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1437" y="1045"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="16" language="java" name="kr.or.inair.companymember.aivoice.service.ICompanyMEMAIVoiceService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/aivoice/service/ICompanyMEMAIVoiceService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1409" y="1409"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="17" language="java" name="kr.or.inair.companymember.aimovie.dao.ICompanyMEMAIMovieDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aimovie/dao/ICompanyMEMAIMovieDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1881" y="1153"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="kr.or.inair.companymember.aivoice.dao.ICompanyMEMAIVoiceDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aivoice/dao/ICompanyMEMAIVoiceDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2111" y="1383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="19" language="java" name="kr.or.inair.companymember.aimovie.service.ICompanyMEMAIMovieService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/aimovie/service/ICompanyMEMAIMovieService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1431" y="1151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="20" language="java" name="kr.or.inair.controller.companymember.CompanyMemberMyPageController" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/controller/companymember/CompanyMemberMyPageController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1203" y="1208"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="21" language="java" name="kr.or.inair.companymember.aianswer.dao.ICompanyMEMAIAnswerDao" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/aianswer/dao/ICompanyMEMAIAnswerDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="988" y="1638"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="22" language="java" name="kr.or.inair.companymember.ailist.service.ICompanyMEMAIListServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/ailist/service/ICompanyMEMAIListServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1632" y="1294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="kr.or.inair.companymember.aimovie.dao.ICompanyMEMAIMovieDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aimovie/dao/ICompanyMEMAIMovieDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2100" y="1144"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="24" language="java" name="kr.or.inair.companymember.aiquest.service.ICompanyMEMAIQUESTService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/aiquest/service/ICompanyMEMAIQUESTService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1416" y="1515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="25" language="java" name="kr.or.inair.companymember.aiquest.service.ICompanyMEMAIQUESTServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aiquest/service/ICompanyMEMAIQUESTServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1657" y="1519"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="kr.or.inair.companymember.airesult.service.ICompanyMEMAIResultServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/airesult/service/ICompanyMEMAIResultServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1659" y="1033"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="kr.or.inair.companymember.airesult.dao.ICompanyMEMAIResultDaoImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/airesult/dao/ICompanyMEMAIResultDaoImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2110" y="1033"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="kr.or.inair.companymember.aiquest.dao.ICompanyMEMAIQUESTDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aiquest/dao/ICompanyMEMAIQUESTDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2126" y="1506"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="kr.or.inair.companymember.aiface.service.ICompanyMEMAIFaceServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aiface/service/ICompanyMEMAIFaceServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1672" y="1630"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="30" language="java" name="kr.or.inair.companymember.aianswer.service.ICompanyMEMAIAnswerService" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aianswer/service/ICompanyMEMAIAnswerService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1189" y="1517"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="31" language="java" name="kr.or.inair.companymember.aianswer.service.ICompanyMEMAIAnswerServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aianswer/service/ICompanyMEMAIAnswerServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1195" y="1638"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="32" language="java" name="kr.or.inair.companymember.aiface.service.ICompanyMEMAIFaceService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/aiface/service/ICompanyMEMAIFaceService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1428" y="1635"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="33" language="java" name="kr.or.inair.companymember.ailist.dao.ICompanyMEMAIListDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/ailist/dao/ICompanyMEMAIListDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1874" y="1286"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="34" language="java" name="kr.or.inair.companymember.airesult.dao.ICompanyMEMAIResultDao" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/airesult/dao/ICompanyMEMAIResultDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1888" y="1031"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="35" language="java" name="kr.or.inair.companymember.aivoice.service.ICompanyMEMAIVoiceServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aivoice/service/ICompanyMEMAIVoiceServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1646" y="1405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="36" language="java" name="kr.or.inair.companymember.ailist.service.ICompanyMEMAIListService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/companymember/ailist/service/ICompanyMEMAIListService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1405" y="1276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="37" language="java" name="kr.or.inair.companymember.aimovie.service.ICompanyMEMAIMovieServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aimovie/service/ICompanyMEMAIMovieServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1651" y="1159"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="38" language="java" name="kr.or.inair.companymember.aiface.dao.ICompanyMEMAIFaceDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aiface/dao/ICompanyMEMAIFaceDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1894" y="1634"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="39" language="java" name="kr.or.inair.companymember.aivoice.dao.ICompanyMEMAIVoiceDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aivoice/dao/ICompanyMEMAIVoiceDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1880" y="1403"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="40" language="java" name="kr.or.inair.companymember.aiface.dao.ICompanyMEMAIFaceDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aiface/dao/ICompanyMEMAIFaceDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2116" y="1618"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="41" language="java" name="kr.or.inair.companymember.aiquest.dao.ICompanyMEMAIQUESTDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/companymember/aiquest/dao/ICompanyMEMAIQUESTDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1897" y="1524"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="42" language="java" name="kr.or.inair.controller.admin.AdminMemberManagementController" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/controller/admin/AdminMemberManagementController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3080" y="318"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="43" language="java" name="kr.or.inair.admin.companymember.service.IAdminCompanyMEMService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/admin/companymember/service/IAdminCompanyMEMService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3077" y="415"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="44" language="java" name="kr.or.inair.admin.individualmember.service.IAdminIndividualMemberServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/individualmember/service/IAdminIndividualMemberServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3081" y="67"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="45" language="java" name="kr.or.inair.admin.companymember.dao.IAdminCompanyMEMDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/companymember/dao/IAdminCompanyMEMDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3292" y="531"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="46" language="java" name="kr.or.inair.admin.companymember.service.IAdminCompanyMEMServiceImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/admin/companymember/service/IAdminCompanyMEMServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3297" y="417"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="kr.or.inair.admin.companymember.dao.IAdminCompanyMEMDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/companymember/dao/IAdminCompanyMEMDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3081" y="521"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="kr.or.inair.admin.individualmember.dao.IAdminINDVDLMEMDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/individualmember/dao/IAdminINDVDLMEMDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3304" y="76"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="49" language="java" name="kr.or.inair.admin.individualmember.dao.IAdminINDVDLMEMDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/individualmember/dao/IAdminINDVDLMEMDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3296" y="197"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="50" language="java" name="kr.or.inair.admin.individualmember.service.IAdminIndividualMemberService" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/individualmember/service/IAdminIndividualMemberService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3077" y="197"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="51" language="java" name="kr.or.inair.controller.admin.AdminItemManagementController" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/controller/admin/AdminItemManagementController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2804" y="1302"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="kr.or.inair.admin.uppro.dao.IAdminUpPRODaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/uppro/dao/IAdminUpPRODaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2335" y="856"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="53" language="java" name="kr.or.inair.admin.salary.service.IAdminSalaryService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/salary/service/IAdminSalaryService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2525" y="1345"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="54" language="java" name="kr.or.inair.admin.upindustry.dao.IAdminUpIndustryDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/upindustry/dao/IAdminUpIndustryDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2916" y="872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="55" language="java" name="kr.or.inair.admin.employment.service.IAdminEmploymentService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/employment/service/IAdminEmploymentService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3303" y="1268"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="56" language="java" name="kr.or.inair.admin.lowindustry.service.IAdminLowIndustryService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/admin/lowindustry/service/IAdminLowIndustryService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2346" y="1281"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="57" language="java" name="kr.or.inair.admin.indvdlsecession.service.IAdminINDVDLDropService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/admin/indvdlsecession/service/IAdminINDVDLDropService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3309" y="1172"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="58" language="java" name="kr.or.inair.admin.classofposition.dao.IAdminClassOfPositionDao" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/admin/classofposition/dao/IAdminClassOfPositionDao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2712" y="971"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="59" language="java" name="kr.or.inair.admin.upindustry.service.IAdminUpIndustryService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/upindustry/service/IAdminUpIndustryService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2913" y="1167"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="60" language="java" name="kr.or.inair.admin.work.service.IAdminWorkService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/work/service/IAdminWorkService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3096" y="1263"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="61" language="java" name="kr.or.inair.admin.uppro.dao.IAdminUpPRODao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/uppro/dao/IAdminUpPRODao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2335" y="969"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="62" language="java" name="kr.or.inair.admin.uppro.service.IAdminUpPROServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/uppro/service/IAdminUpPROServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2346" y="1073"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="kr.or.inair.admin.classofposition.service.IAdminClassOfPositionServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/classofposition/service/IAdminClassOfPositionServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2723" y="1068"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="64" language="java" name="kr.or.inair.admin.employment.dao.IAdminEmploymentDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/employment/dao/IAdminEmploymentDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3295" y="1447"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="65" language="java" name="kr.or.inair.admin.language.service.IAdminLanguageServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/language/service/IAdminLanguageServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2533" y="1074"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="66" language="java" name="kr.or.inair.admin.lowindustry.dao.IAdminLowIndustryDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/lowindustry/dao/IAdminLowIndustryDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2336" y="1556"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="67" language="java" name="kr.or.inair.admin.comdrop.dao.IAdminCOMDropDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/comdrop/dao/IAdminCOMDropDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2922" y="1533"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="68" language="java" name="kr.or.inair.admin.language.dao.IAdminLanguageDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/language/dao/IAdminLanguageDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2526" y="873"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="69" language="java" name="kr.or.inair.admin.lowindustry.dao.IAdminLowIndustryDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/lowindustry/dao/IAdminLowIndustryDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2336" y="1463"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="70" language="java" name="kr.or.inair.admin.lowpro.service.IAdminLowPROServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/lowpro/service/IAdminLowPROServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3113" y="1063"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="71" language="java" name="kr.or.inair.admin.comdrop.dao.IAdminCOMDropDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/comdrop/dao/IAdminCOMDropDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2699" y="1528"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="72" language="java" name="kr.or.inair.admin.salary.service.IAdminSalaryServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/salary/service/IAdminSalaryServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2524" y="1435"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="73" language="java" name="kr.or.inair.admin.classofposition.service.IAdminClassOfPositionService" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/classofposition/service/IAdminClassOfPositionService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2725" y="1170"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="74" language="java" name="kr.or.inair.admin.lowpro.dao.IAdminLowPRODao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/lowpro/dao/IAdminLowPRODao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3102" y="964"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="75" language="java" name="kr.or.inair.admin.salary.dao.IAdminSalaryDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/salary/dao/IAdminSalaryDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2518" y="1605"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="76" language="java" name="kr.or.inair.admin.lowindustry.service.IAdminLowIndustryServiceImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/admin/lowindustry/service/IAdminLowIndustryServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2348" y="1373"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="77" language="java" name="kr.or.inair.admin.upindustry.service.IAdminUpIndustryServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/upindustry/service/IAdminUpIndustryServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2917" y="1063"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="78" language="java" name="kr.or.inair.admin.lowpro.dao.IAdminLowPRODaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/lowpro/dao/IAdminLowPRODaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3102" y="867"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="79" language="java" name="kr.or.inair.admin.work.service.IAdminWorkServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/work/service/IAdminWorkServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3094" y="1365"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="80" language="java" name="kr.or.inair.admin.language.service.IAdminLanguageService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/language/service/IAdminLanguageService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2534" y="1175"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="81" language="java" name="kr.or.inair.admin.lowpro.service.IAdminLowPROService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/lowpro/service/IAdminLowPROService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3109" y="1164"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="82" language="java" name="kr.or.inair.admin.comdrop.service.IAdminCOMDropService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/comdrop/service/IAdminCOMDropService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2705" y="1425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="83" language="java" name="kr.or.inair.admin.language.dao.IAdminLanguageDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/language/dao/IAdminLanguageDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2527" y="979"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="84" language="java" name="kr.or.inair.admin.classofposition.dao.IAdminClassOfPositionDaoImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/admin/classofposition/dao/IAdminClassOfPositionDaoImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2713" y="870"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="kr.or.inair.admin.comdrop.service.IAdminCOMDropServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/comdrop/service/IAdminCOMDropServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2921" y="1430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="86" language="java" name="kr.or.inair.admin.indvdlsecession.dao.IAdminINDVDLDropDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/indvdlsecession/dao/IAdminINDVDLDropDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3311" y="878"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="87" language="java" name="kr.or.inair.admin.indvdlsecession.service.IAdminINDVDLDropServiceImpl" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/indvdlsecession/service/IAdminINDVDLDropServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3321" y="1072"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="88" language="java" name="kr.or.inair.admin.employment.service.IAdminEmploymentServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/employment/service/IAdminEmploymentServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3303" y="1358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="89" language="java" name="kr.or.inair.admin.work.dao.IAdminWorkDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/work/dao/IAdminWorkDaoImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3085" y="1555"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="90" language="java" name="kr.or.inair.admin.indvdlsecession.dao.IAdminINDVDLDropDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/indvdlsecession/dao/IAdminINDVDLDropDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3309" y="979"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="91" language="java" name="kr.or.inair.admin.work.dao.IAdminWorkDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/work/dao/IAdminWorkDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3087" y="1456"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="92" language="java" name="kr.or.inair.admin.uppro.service.IAdminUpPROService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/uppro/service/IAdminUpPROService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2347" y="1176"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="93" language="java" name="kr.or.inair.admin.upindustry.dao.IAdminUpIndustryDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/upindustry/dao/IAdminUpIndustryDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2917" y="966"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="94" language="java" name="kr.or.inair.admin.salary.dao.IAdminSalaryDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/salary/dao/IAdminSalaryDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2516" y="1516"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="95" language="java" name="kr.or.inair.admin.employment.dao.IAdminEmploymentDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/admin/employment/dao/IAdminEmploymentDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3296" y="1545"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="96" language="java" name="kr.or.inair.controller.individualmember.IndividualMemberAiController" 
+    project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/controller/individualmember/IndividualMemberAiController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="451" y="434"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="97" language="java" name="kr.or.inair.individualmember.aianswer.dao.IAIAnswerDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aianswer/dao/IAIAnswerDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="206" y="225"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="98" language="java" name="kr.or.inair.individualmember.aianswer.service.IAIAnswerServiceImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aianswer/service/IAIAnswerServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="207" y="320"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="99" language="java" name="kr.or.inair.individualmember.aianswer.dao.IAIAnswerDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aianswer/dao/IAIAnswerDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="212" y="116"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="100" language="java" name="kr.or.inair.individualmember.airesult.dao.IAIResultDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/airesult/dao/IAIResultDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="695" y="235"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="101" language="java" name="kr.or.inair.individualmember.ailist.dao.IAIListDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/ailist/dao/IAIListDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="665" y="686"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="102" language="java" name="kr.or.inair.individualmember.aivoice.dao.IAIVoiceDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aivoice/dao/IAIVoiceDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="444" y="689"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="103" language="java" name="kr.or.inair.individualmember.aiquest.dao.IAIQUESTDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aiquest/dao/IAIQUESTDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="201" y="791"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="104" language="java" name="kr.or.inair.individualmember.aimovie.service.IAIMovieServiceImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aimovie/service/IAIMovieServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="457" y="245"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="105" language="java" name="kr.or.inair.individualmember.aivoice.service.IAIVoiceServiceImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aivoice/service/IAIVoiceServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="445" y="606"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="106" language="java" name="kr.or.inair.individualmember.airesult.service.IAIResultService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/airesult/service/IAIResultService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="685" y="414"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="107" language="java" name="kr.or.inair.individualmember.aivoice.service.IAIVoiceService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aivoice/service/IAIVoiceService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="447" y="520"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="108" language="java" name="kr.or.inair.individualmember.aiquest.dao.IAIQUESTDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aiquest/dao/IAIQUESTDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="206" y="698"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="109" language="java" name="kr.or.inair.individualmember.airesult.dao.IAIResultDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/airesult/dao/IAIResultDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="697" y="140"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="110" language="java" name="kr.or.inair.individualmember.airesult.service.IAIResultServicImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/airesult/service/IAIResultServicImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="696" y="322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="111" language="java" name="kr.or.inair.individualmember.aiface.dao.IAIFaceDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aiface/dao/IAIFaceDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="869" y="676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="112" language="java" name="kr.or.inair.individualmember.aimovie.service.IAIMovieService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aimovie/service/IAIMovieService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="459" y="333"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="113" language="java" name="kr.or.inair.individualmember.aiquest.service.IAIQUESTServiceImpl" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aiquest/service/IAIQUESTServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="204" y="609"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="114" language="java" name="kr.or.inair.individualmember.aiface.service.IAIFaceService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aiface/service/IAIFaceService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="879" y="497"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="115" language="java" name="kr.or.inair.individualmember.ailist.dao.IAIListDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/ailist/dao/IAIListDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="668" y="781"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="116" language="java" name="kr.or.inair.individualmember.aianswer.service.IAIAnswerService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aianswer/service/IAIAnswerService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="202" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="117" language="java" name="kr.or.inair.individualmember.aimovie.dao.IAIMovieDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aimovie/dao/IAIMovieDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="458" y="49"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="118" language="java" name="kr.or.inair.individualmember.aiface.dao.IAIFaceDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aiface/dao/IAIFaceDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="872" y="770"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="119" language="java" name="kr.or.inair.individualmember.aiquest.service.IAIQUESTService" 
+    project="inAIR" file="/inAIR/src/main/java/kr/or/inair/individualmember/aiquest/service/IAIQUESTService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="203" y="525"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="120" language="java" name="kr.or.inair.individualmember.ailist.service.IAIListServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/ailist/service/IAIListServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="666" y="604"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="121" language="java" name="kr.or.inair.individualmember.ailist.service.IAIListService" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/ailist/service/IAIListService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="662" y="523"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="122" language="java" name="kr.or.inair.individualmember.aiface.service.IAIFaceServiceImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aiface/service/IAIFaceServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="877" y="586"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="123" language="java" name="kr.or.inair.individualmember.aimovie.dao.IAIMovieDao" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aimovie/dao/IAIMovieDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="455" y="157"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="124" language="java" name="kr.or.inair.individualmember.aivoice.dao.IAIVoiceDaoImpl" project="inAIR" 
+    file="/inAIR/src/main/java/kr/or/inair/individualmember/aivoice/dao/IAIVoiceDaoImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="444" y="784"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="125">    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="126" name="aiVoiceService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="127" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="107" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="129" name="jobOfferSubmitService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="130" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="131">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="132" name="aiDetailService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="133" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="134">    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="135" name="aiAnswerService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="136" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="116" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="137">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="38"/>  
+  </realization>  
+  <association id="138">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="139" name="lowIndustryService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="140" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="56" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="141">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="61"/>  
+  </realization>  
+  <realization id="142">    
+    <end type="SOURCE" refId="75"/>    
+    <end type="TARGET" refId="94"/>  
+  </realization>  
+  <realization id="143">    
+    <end type="SOURCE" refId="70"/>    
+    <end type="TARGET" refId="81"/>  
+  </realization>  
+  <realization id="144">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="36"/>  
+  </realization>  
+  <association id="145">    
+    <end type="SOURCE" refId="70" navigable="false">      
+      <attribute id="146" name="lowProfessionDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="147" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="74" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="148">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="50"/>  
+  </realization>  
+  <realization id="149">    
+    <end type="SOURCE" refId="89"/>    
+    <end type="TARGET" refId="91"/>  
+  </realization>  
+  <realization id="150">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="151">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="152" name="aiResultService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="153" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="154">    
+    <end type="SOURCE" refId="105"/>    
+    <end type="TARGET" refId="107"/>  
+  </realization>  
+  <realization id="155">    
+    <end type="SOURCE" refId="95"/>    
+    <end type="TARGET" refId="64"/>  
+  </realization>  
+  <realization id="156">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="112"/>  
+  </realization>  
+  <realization id="157">    
+    <end type="SOURCE" refId="122"/>    
+    <end type="TARGET" refId="114"/>  
+  </realization>  
+  <realization id="158">    
+    <end type="SOURCE" refId="117"/>    
+    <end type="TARGET" refId="123"/>  
+  </realization>  
+  <association id="159">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="160" name="jobOfferService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="161" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="162">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="163" name="individualMemberService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="164" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="165">    
+    <end type="SOURCE" refId="71"/>    
+    <end type="TARGET" refId="67"/>  
+  </realization>  
+  <association id="166">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="167" name="employmentService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="168" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="169">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <realization id="170">    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="59"/>  
+  </realization>  
+  <realization id="171">    
+    <end type="SOURCE" refId="109"/>    
+    <end type="TARGET" refId="100"/>  
+  </realization>  
+  <association id="172">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="173" name="languageService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="174" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="80" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="175">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="57"/>  
+  </realization>  
+  <association id="176">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="177" name="aiVoiceDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="178" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="179">    
+    <end type="SOURCE" refId="105" navigable="false">      
+      <attribute id="180" name="aiVoiceDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="181" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="102" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="182">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="183" name="jobOfferDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="184" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="185">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="186" name="lowProfessionService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="187" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="81" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="188">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="189" name="aiQuestionService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="190" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="191">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="192" name="classOfPositionService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="193" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="73" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="194">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="195" name="aiAnswerDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="196" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="197">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="198" name="salaryService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="199" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="200">    
+    <end type="SOURCE" refId="65" navigable="false">      
+      <attribute id="201" name="languadeDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="202" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="83" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="203">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="204" name="workService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="205" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="60" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="206">    
+    <end type="SOURCE" refId="118"/>    
+    <end type="TARGET" refId="111"/>  
+  </realization>  
+  <association id="207">    
+    <end type="SOURCE" refId="104" navigable="false">      
+      <attribute id="208" name="aiMovieDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="209" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="123" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="210">    
+    <end type="SOURCE" refId="79" navigable="false">      
+      <attribute id="211" name="workDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="212" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="91" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="213">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="19"/>  
+  </realization>  
+  <association id="214">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="215" name="aiAnswerService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="216" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="217">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="43"/>  
+  </realization>  
+  <association id="218">    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="219" name="aiListService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="220" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="121" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="221">    
+    <end type="SOURCE" refId="76" navigable="false">      
+      <attribute id="222" name="lowIndustryDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="223" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="69" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="224">    
+    <end type="SOURCE" refId="115"/>    
+    <end type="TARGET" refId="101"/>  
+  </realization>  
+  <association id="225">    
+    <end type="SOURCE" refId="113" navigable="false">      
+      <attribute id="226" name="aiQuestionDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="227" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="228">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="229" name="individualMemberDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="230" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="231">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="60"/>  
+  </realization>  
+  <realization id="232">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="80"/>  
+  </realization>  
+  <realization id="233">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="33"/>  
+  </realization>  
+  <realization id="234">    
+    <end type="SOURCE" refId="62"/>    
+    <end type="TARGET" refId="92"/>  
+  </realization>  
+  <realization id="235">    
+    <end type="SOURCE" refId="120"/>    
+    <end type="TARGET" refId="121"/>  
+  </realization>  
+  <realization id="236">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <realization id="237">    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="58"/>  
+  </realization>  
+  <realization id="238">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <realization id="239">    
+    <end type="SOURCE" refId="63"/>    
+    <end type="TARGET" refId="73"/>  
+  </realization>  
+  <association id="240">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="241" name="companyMemberService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="242" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="243">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="244" name="aiResultDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="245" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="246">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="247" name="iNDVDLSecessionService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="248" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="57" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="249">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="250" name="companyMemberDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="251" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="252">    
+    <end type="SOURCE" refId="120" navigable="false">      
+      <attribute id="253" name="aiDetailDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="254" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="101" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="255">    
+    <end type="SOURCE" refId="122" navigable="false">      
+      <attribute id="256" name="aiFaceDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="257" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="111" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="258">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="259">    
+    <end type="SOURCE" refId="76"/>    
+    <end type="TARGET" refId="56"/>  
+  </realization>  
+  <realization id="260">    
+    <end type="SOURCE" refId="99"/>    
+    <end type="TARGET" refId="97"/>  
+  </realization>  
+  <association id="261">    
+    <end type="SOURCE" refId="77" navigable="false">      
+      <attribute id="262" name="upIndustryDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="263" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="93" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="264">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="265" name="jobOfferSubmitDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="266" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="267">    
+    <end type="SOURCE" refId="87" navigable="false">      
+      <attribute id="268" name="indvdlSecessionDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="269" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="90" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="270">    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="271" name="aiQuestionService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="272" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="119" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="273">    
+    <end type="SOURCE" refId="72" navigable="false">      
+      <attribute id="274" name="salaryDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="275" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="94" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="276">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <realization id="277">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="53"/>  
+  </realization>  
+  <association id="278">    
+    <end type="SOURCE" refId="63" navigable="false">      
+      <attribute id="279" name="classOfPositionDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="280" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="58" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="281">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="282" name="aiFaceDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="283" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="284">    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="49"/>  
+  </realization>  
+  <association id="285">    
+    <end type="SOURCE" refId="85" navigable="false">      
+      <attribute id="286" name="comSecessionDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="287" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="67" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="288">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="289" name="aiMovieService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="290" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="291">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="292" name="companyMemberService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="293" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="294">    
+    <end type="SOURCE" refId="46" navigable="false">      
+      <attribute id="295" name="companyMemberDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="296" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="45" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="297">    
+    <end type="SOURCE" refId="110" navigable="false">      
+      <attribute id="298" name="aiResultDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="299" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="100" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="300">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="301" name="aiDetailDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="302" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="303">    
+    <end type="SOURCE" refId="88"/>    
+    <end type="TARGET" refId="55"/>  
+  </realization>  
+  <association id="304">    
+    <end type="SOURCE" refId="88" navigable="false">      
+      <attribute id="305" name="employmentDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="306" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="64" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="307">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="83"/>  
+  </realization>  
+  <realization id="308">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="309">    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="310" name="aiFaceService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="311" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="114" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="312">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="313" name="aiMovieDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="314" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="315">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="316">    
+    <end type="SOURCE" refId="78"/>    
+    <end type="TARGET" refId="74"/>  
+  </realization>  
+  <association id="317">    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="318" name="aiResultService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="319" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="106" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="320">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="321" name="aiVoiceService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="322" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="323">    
+    <end type="SOURCE" refId="113"/>    
+    <end type="TARGET" refId="119"/>  
+  </realization>  
+  <realization id="324">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="82"/>  
+  </realization>  
+  <realization id="325">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="326">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="327" name="upProfessionDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="328" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="329">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="39"/>  
+  </realization>  
+  <realization id="330">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <realization id="331">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="93"/>  
+  </realization>  
+  <association id="332">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="333" name="aiQuestionDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="334" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="335">    
+    <end type="SOURCE" refId="96" navigable="false">      
+      <attribute id="336" name="aiMovieService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="337" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="112" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="338">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <realization id="339">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <realization id="340">    
+    <end type="SOURCE" refId="86"/>    
+    <end type="TARGET" refId="90"/>  
+  </realization>  
+  <realization id="341">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="30"/>  
+  </realization>  
+  <realization id="342">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="343">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <association id="344">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="345" name="upIndustryService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="346" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="59" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="347">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="348" name="upProfessionService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="349" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="92" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="350">    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="116"/>  
+  </realization>  
+  <realization id="351">    
+    <end type="SOURCE" refId="110"/>    
+    <end type="TARGET" refId="106"/>  
+  </realization>  
+  <realization id="352">    
+    <end type="SOURCE" refId="66"/>    
+    <end type="TARGET" refId="69"/>  
+  </realization>  
+  <realization id="353">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <association id="354">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="355" name="aiFaceService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="356" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="357">    
+    <end type="SOURCE" refId="124"/>    
+    <end type="TARGET" refId="102"/>  
+  </realization>  
+  <association id="358">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="359" name="cOMSecessionService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="360" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="82" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="361">    
+    <end type="SOURCE" refId="103"/>    
+    <end type="TARGET" refId="108"/>  
+  </realization>  
+  <association id="362">    
+    <end type="SOURCE" refId="98" navigable="false">      
+      <attribute id="363" name="aiAnswerDao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="364" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="97" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

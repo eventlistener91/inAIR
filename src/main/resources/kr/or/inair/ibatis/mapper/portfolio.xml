@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="portfolio">
+	<typeAlias alias="portfolioVO" type="kr.or.inair.vo.PortfolioVO"/>
+	
+	<statement id="portfolioList" resultClass="portfolioVO">
+		SELECT * 
+		FROM   PORTFOLIO 
+		WHERE  RESUME_NUM = #resume_num# 
+	</statement>
+	
+	<insert id="inserPortfolioInfo" parameterClass="portfolioVO">
+		INSERT INTO PORTFOLIO(PORT_NUM
+							 ,RESUME_NUM
+							 ,PORT_FILENAME
+							 ,PORT_FILESAVENAME
+							 ,PORT_FILEEVENTN
+							 ,PORT_FILESIZE
+							 ,PORT_DELETE)
+		VALUES(SEQ_PORTFOLIO.NEXTVAL
+			  ,#resume_num#
+			  ,#port_filename#
+			  ,#port_filesavename#
+			  ,#port_fileeventn#
+			  ,#port_filesize#
+			  ,#port_delete#)						  
+	</insert>	
+	
+	<update id="updatePortfolioInfo" parameterClass="portfolioVO">
+		UPDATE PORTFOLIO 
+		SET    PORT_FILENAME = #port_filename#
+			  ,PORT_FILESAVENAME = #port_filesavename#
+			  ,PORT_FILEEVENTN = #port_fileeventn#
+			  ,PORT_FILESIZE = #port_filesize#
+		WHERE  PORT_NUM = #port_num#	  
+	</update>
+</sqlMap> 

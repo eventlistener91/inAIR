@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="mentorboard_file">
+	<typeAlias alias="Mentor_FileVO" type="kr.or.inair.vo.Mentor_FileVO"/>
+	
+	<statement id="mentorboardfileitemList" resultClass="Mentor_FileVO">
+		 SELECT * 
+		   FROM MENTOR_FILE
+		  WHERE MENTOR_NUM = #mentor_num#		
+	</statement>
+	
+	<insert id="insertFileItem" parameterClass="Mentor_FileVO">
+		<selectKey keyProperty="men_file_num">
+			SELECT SEQ_MENTOR_FILE.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO MENTOR_FILE(MEN_FILE_NUM
+							   ,MENTOR_NUM
+							   ,MEN_FILE_EVENTN
+							   ,MEN_FILE_NAME
+							   ,MEN_FILE_SAVENAME
+							   ,MEN_FILE_SIZE)
+					     VALUES(#men_file_num#
+						 		,#mentor_num#
+						 		,#men_file_eventn#
+						 		,#men_file_name#
+						 		,#men_file_savename#
+						 		,#men_file_size#)
+
+	</insert>
+	
+	<select id="mentorboardfileItemInfo" parameterClass="map" resultClass="Mentor_FileVO">
+		SELECT * 
+		  FROM MENTOR_FILE
+		  WHERE MEN_FILE_NUM = #men_file_num#
+	</select>
+	
+	
+	
+	
+	
+	
+	
+</sqlMap> 

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="jobOffer">
+	<typeAlias alias="jobOfferVO" type="kr.or.inair.vo.Job_OfferVO"/>
+	
+	<select id="getJobListCount" resultClass="int">
+		SELECT COUNT(*) FROM JOB_OFFER WHERE JO_DELETE = 'N'
+	</select>
+	
+	<resultMap id="jobOfferMap" class="jobOfferVO">
+		<result property="jo_num" column="jo_num"/>				
+		<result property="com_id" column="com_id"/>         
+		<result property="jo_sj" column="jo_sj"/>              
+		<result property="jo_cn" column="jo_cn"/>              
+		<result property="jo_hit" column="jo_hit"/>            
+		<result property="jo_rgsde" column="jo_rgsde"/>            
+		<result property="jo_clos" column="jo_clos"/>            
+		<result property="jo_adres1" column="jo_adres1"/>          
+		<result property="jo_adres2" column="jo_adres2"/>          
+		<result property="jo_wlfare" column="jo_wlfare"/>          
+		<result property="jo_delete" column="jo_delete"/>          
+		<result property="jo_aireqst" column="jo_aireqst"/>         
+		<result property="jo_aistart" column="jo_aistart"/>         
+		<result property="jo_aiend" column="jo_aiend"/>           
+		<result property="lowpro_num" column="lowpro_num"/>         
+		<result property="fin_acdmcr_num" column="fin_acdmcr_num"/>     
+		<result property="salary_num" column="salary_num"/>         
+		<result property="emplym_num" column="emplym_num"/>			
+		<result property="jo_work_day" column="jo_work_day"/>			
+		<result property="jo_work_time" column="jo_work_time"/>     
+		<result property="jo_manager_name" column="jo_manager_name"/>    
+		<result property="jo_manager_tel" column="jo_manager_tel"/>     
+		<result property="jo_manager_mail" column="jo_manager_mail"/>
+		<result property="recruitmentFieldList" column="jo_num" select="recruitmentField.recruitmentFieldList"/>
+		<result property="finAcdmcrString" column="fin_acdmcr_num" select="finalAcademic.selectfinAcdmcr"/> 
+		<result property="salaryString" column="salary_num" select="salary.selectSalaryScope"/>
+		<result property="emplymString" column="emplym_num" select="employment.selectEmplym"/>
+		<result property="jo_finish" column="jo_finish"/> 
+	</resultMap>
+	
+	<insert id="insertjobOffer" parameterClass="jobOfferVO">
+		<selectKey keyProperty="jo_num" resultClass="String">
+			SELECT SEQ_JOB_OFFER.NEXTVAL FROM DUAL 
+		</selectKey>
+		INSERT INTO JOB_OFFER (JO_NUM
+							  ,COM_ID
+							  ,JO_SJ
+							  <isNotEmpty property="jo_cn">
+							  ,JO_CN
+							  </isNotEmpty>
+							  ,JO_RGSDE
+							  ,JO_CLOS
+							  ,JO_ADRES1
+							  ,JO_ADRES2
+							  <isNotEmpty property="jo_wlfare">
+							  ,JO_WLFARE
+							  </isNotEmpty>
+							  ,JO_AIREQST
+							  <isNotEmpty property="jo_aistart">
+							  ,JO_AISTART          
+							  </isNotEmpty>
+							  <isNotEmpty property="jo_aiend">
+							  ,JO_AIEND
+							  </isNotEmpty>
+							  ,LOWPRO_NUM
+							  ,FIN_ACDMCR_NUM
+							  ,SALARY_NUM
+							  ,EMPLYM_NUM
+							  ,JO_WORK_DAY
+							  ,JO_WORK_TIME
+							  ,JO_MANAGER_NAME
+							  ,JO_MANAGER_TEL
+							  ,JO_MANAGER_MAIL)
+		VALUES(#jo_num# 
+			  ,#com_id#
+			  ,#jo_sj#
+			  <isNotEmpty property="jo_cn">
+			  ,#jo_cn#
+			  </isNotEmpty>
+			  ,#jo_rgsde#
+			  ,#jo_clos#
+			  ,#jo_adres1#
+			  ,#jo_adres2#
+			  <isNotEmpty property="jo_wlfare">
+			  ,#jo_wlfare#
+			  </isNotEmpty>
+			  ,#jo_aireqst#
+			  <isNotEmpty property="jo_aistart">
+			  ,#jo_aistart#        
+			  </isNotEmpty>
+			  <isNotEmpty property="jo_aiend">
+			  ,#jo_aiend#
+			  </isNotEmpty>
+			  ,#lowpro_num#
+			  ,#fin_acdmcr_num#
+			  ,#salary_num#
+			  ,#emplym_num#
+			  ,#jo_work_day#
+			  ,#jo_work_time#
+			  ,#jo_manager_name#
+			  ,#jo_manager_tel#
+			  ,#jo_manager_mail#)					  
+	</insert>
+	
+	<sql id="selectJobOffer">
+		<dynamic prepend="and">
+			<isNotEmpty property="jo_aireqst" prepend="and">
+				JO_AIREQST = #jo_aireqst#
+			</isNotEmpty>
+			<isNotEmpty property="joOfferStatus0" prepend="and">
+				<![CDATA[
+				    JO_RGSDE <= SYSDATE
+				AND JO_CLOS  >= SYSDATE
+				]]>
+ 			</isNotEmpty>
+			<isNotEmpty property="joOfferStatus1" prepend="and">
+				<![CDATA[
+				    JO_RGSDE >= SYSDATE
+				]]>
+			</isNotEmpty>
+			<isNotEmpty property="joOfferStatus2" prepend="and">
+				<![CDATA[
+				    JO_CLOS <= SYSDATE
+				]]>
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<select id="getJobOfferList" resultMap="jobOfferMap" parameterClass="Map">
+		SELECT JO_NUM
+			  ,COM_ID
+			  ,JO_SJ
+			  ,JO_CN
+			  ,JO_HIT
+			  ,TO_CHAR(JO_RGSDE, 'YYYY-MM-DD') AS JO_RGSDE
+			  ,TO_CHAR(JO_CLOS, 'YYYY-MM-DD') AS JO_CLOS
+			  ,JO_ADRES1
+			  ,JO_ADRES2
+			  ,JO_WLFARE
+			  ,JO_DELETE
+			  ,JO_AIREQST
+			  ,JO_AISTART
+			  ,JO_AIEND
+			  ,LOWPRO_NUM
+			  ,FIN_ACDMCR_NUM
+			  ,SALARY_NUM
+			  ,EMPLYM_NUM
+			  ,JO_WORK_DAY
+			  ,JO_WORK_TIME
+			  ,JO_MANAGER_NAME
+			  ,JO_MANAGER_TEL
+			  ,JO_MANAGER_MAIL
+			  ,JO_FINISH 
+		FROM   JOB_OFFER 
+		WHERE  COM_ID = #com_id#
+		AND    JO_DELETE = 'N'
+		<include refid="selectJobOffer"/>
+		ORDER  BY JO_RGSDE DESC
+	</select>
+	
+	<update id="deleteJobOffer" parameterClass="String">
+		UPDATE JOB_OFFER 
+		SET    JO_DELETE = 'Y'
+		WHERE  JO_NUM = #jo_num#
+	</update>
+	
+	<select id="getAllJobOffer" parameterClass="Map" resultMap="jobOfferMap">
+		SELECT JO_NUM
+			  ,COM_ID
+			  ,JO_SJ
+			  ,JO_CN
+			  ,JO_HIT
+			  ,TO_CHAR(JO_RGSDE, 'YYYY-MM-DD') AS JO_RGSDE
+			  ,TO_CHAR(JO_CLOS, 'YYYY-MM-DD') AS JO_CLOS
+			  ,JO_ADRES1
+			  ,JO_ADRES2
+			  ,JO_WLFARE
+			  ,JO_DELETE
+			  ,JO_AIREQST
+			  ,TO_CHAR(JO_AISTART, 'YYYY-MM-DD') AS JO_AISTART
+			  ,TO_CHAR(JO_AIEND, 'YYYY-MM-DD') AS JO_AIEND
+			  ,LOWPRO_NUM
+			  ,FIN_ACDMCR_NUM
+			  ,SALARY_NUM
+			  ,EMPLYM_NUM
+			  ,JO_WORK_DAY
+			  ,JO_WORK_TIME
+			  ,JO_MANAGER_NAME
+			  ,JO_MANAGER_TEL
+			  ,JO_MANAGER_MAIL
+			  ,JO_FINISH
+		FROM   JOB_OFFER 
+		WHERE  JO_DELETE = 'N' 
+		ORDER  BY JO_RGSDE DESC 
+	</select>
+	
+	<select id="getJobOfferInfo" parameterClass="String" resultMap="jobOfferMap">
+		SELECT JO_NUM
+			  ,COM_ID
+			  ,JO_SJ
+			  ,JO_CN
+			  ,JO_HIT
+			  ,TO_CHAR(JO_RGSDE, 'YYYY-MM-DD') AS JO_RGSDE
+			  ,TO_CHAR(JO_CLOS, 'YYYY-MM-DD') AS JO_CLOS
+			  ,JO_ADRES1
+			  ,JO_ADRES2
+			  ,JO_WLFARE
+			  ,JO_DELETE
+			  ,JO_AIREQST
+			  ,TO_CHAR(JO_AISTART, 'YYYY-MM-DD') AS JO_AISTART
+			  ,TO_CHAR(JO_AIEND, 'YYYY-MM-DD') AS JO_AIEND
+			  ,JO_AIREQST
+			  ,JO_AISTART
+			  ,JO_AIEND
+			  ,LOWPRO_NUM
+			  ,FIN_ACDMCR_NUM
+			  ,SALARY_NUM
+			  ,EMPLYM_NUM
+			  ,JO_WORK_DAY
+			  ,JO_WORK_TIME
+			  ,JO_MANAGER_NAME
+			  ,JO_MANAGER_TEL
+			  ,JO_MANAGER_MAIL
+			  ,JO_FINISH  
+		FROM   JOB_OFFER 
+		WHERE  JO_NUM = #jo_num# 
+		AND    JO_DELETE = 'N'
+	</select>
+	
+	<sql id="selectCorpName">
+		select c.corp_name,
+			   a.*,
+			   d.fin_acdmcr,
+			   e.emplym,
+			   f.salary_scope
+		  from job_offer a, companymem b, company c, final_academic d, employment e, salary f
+		 where a.com_id = b.com_id
+		   and b.corp_code = c.corp_code
+		   and d.fin_acdmcr_num = a.fin_acdmcr_num
+		   and e.emplym_num = a.emplym_num
+		   and f.salary_num = a.salary_num
+		   and jo_delete = 'N'
+	</sql>
+
+	<sql id="searchCondition">
+		<dynamic prepend="and">
+			<isNotEmpty property="corp_name" prepend="and" open="(" close=")">
+				upper(c.corp_name) like '%'||upper(#corp_name#)||'%'
+			 or upper(a.jo_sj) like '%'||upper(#corp_name#)||'%'
+			</isNotEmpty>
+			<isNotEmpty property="corp_add" prepend="and">
+				jo_adres2 like '%'||#corp_add#||'%'
+			</isNotEmpty>
+			<isNotEmpty property="corp_acdmcr" prepend="and">
+				d.fin_acdmcr like '%'||#corp_acdmcr#||'%'
+			</isNotEmpty>
+			<isNotEmpty property="corp_employment" prepend="and">
+				e.emplym like '%'||#corp_employment#||'%'
+			</isNotEmpty>
+			<isNotEmpty property="corp_salary" prepend="and">
+				f.salary_scope like '%'||#corp_salary#||'%'
+			</isNotEmpty>
+			<isNotEmpty property="corp_lowPro" prepend="and">
+				a.lowpro_num like '%'||#corp_lowPro#||'%'
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<select id="jobOfferList" parameterClass="map" resultMap="jobOfferMap">
+		select B.*
+		  from (select A.*
+		  		  from (<include refid="selectCorpName"/>
+		  		  		<include refid="searchCondition"/>
+		  		  		ORDER BY A.JO_RGSDE DESC)A)B
+	</select>
+	
+	<update id="jobOfferFinish" parameterClass="String">
+		update job_offer
+		   set jo_finish = 'Y'
+		 where jo_num = #jo_num#
+	</update>
+	
+</sqlMap>

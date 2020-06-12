@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="cerificatie">
+	<typeAlias alias="cerificatieVO" type="kr.or.inair.vo.CerificatieVO"/>
+	
+	<statement id="cerificatieList" resultClass="cerificatieVO">
+		SELECT CRQFC_NUM
+			  ,CRQFC_NAME
+			  ,CRQFC_PBLSHR
+			  ,TO_CHAR(CRQFC_ACQDT, 'YYYY-MM-DD') AS CRQFC_ACQDT
+			  ,RESUME_NUM 
+		FROM   CERIFICATIE 
+		WHERE  RESUME_NUM = #resume_num# 
+	</statement>
+	
+	<insert id="insertCerificatieInfo" parameterClass="cerificatieVO">
+		INSERT INTO CERIFICATIE(CRQFC_NUM
+							   ,CRQFC_NAME
+							   ,CRQFC_PBLSHR
+							   ,CRQFC_ACQDT
+							   ,RESUME_NUM)
+		VALUES(SEQ_CERIFICATIE.NEXTVAL
+			  ,#crqfc_name#
+			  ,#crqfc_pblshr#
+			  ,#crqfc_acqdt#
+			  ,#resume_num#)						  
+	</insert>	
+	
+	<update id="updateCerificatieInfo" parameterClass="cerificatieVO">
+		UPDATE CERIFICATIE 
+		SET    CRQFC_NAME = #crqfc_name#
+			  ,CRQFC_PBLSHR = #crqfc_pblshr#
+			  ,CRQFC_ACQDT = #crqfc_acqdt#
+		WHERE  CRQFC_NUM = #crqfc_num#	   
+	</update>
+</sqlMap> 

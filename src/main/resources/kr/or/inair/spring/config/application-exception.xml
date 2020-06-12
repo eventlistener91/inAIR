@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<!-- 
+		스프링 프레임웍
+		Root Context 관리 			<== 컨트롤러 레이어 			<== 서비스 레이서				<==다오 레이서	
+		DispatcherServlet				익셉션 발생 throwing		익셉션 발생 throwing		익셉션 발생 throwing		
+		(WebApplicationContext)
+		*** 익셉션 처리 ***
+		
+		그냥 이렇게 사용합니다만 알고 실제는 404 500 익셉션 처리 하세요~
+	 -->
+	 <util:properties id="exceptionMappings">
+	 <!-- 패키지명 입력해야하나 생략할수있다. java.lang.NullpointerException -->
+	 	<prop key="NullpointerException">error/error500</prop>
+	 	<prop key="RuntimeException">error/error500</prop>
+	 	<prop key="org.springframework.dao.DataAccessException">error/error500</prop>
+	 	<prop key="org.springframework.transaction.TransactionException">error/error500</prop>
+	 </util:properties>
+	 <bean class="kr.or.inair.global.exception.CustomExceptionResolver"
+	 		p:defaultErrorView="error/error500"
+	 		p:exceptionMappings-ref="exceptionMappings">
+	 </bean>
+</beans>

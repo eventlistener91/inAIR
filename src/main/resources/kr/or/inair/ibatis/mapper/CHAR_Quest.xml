@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="charQuest">
+	<typeAlias alias="charQuestVO" type="kr.or.inair.vo.CHAR_QuestVO"/>
+
+	<select id="charQuestList" resultClass="charQuestVO">
+		SELECT * 
+		  FROM CHAR_QUEST
+		 ORDER BY CHAR_NUM ASC
+	</select>
+	
+	
+</sqlMap>

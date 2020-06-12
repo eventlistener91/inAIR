@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="freeboard_file">
+	<typeAlias alias="freeboard_filevo" type="kr.or.inair.vo.Freeboard_FileVO"/>
+	
+	<statement id="freeboardfileitemList" resultClass="freeboard_filevo">
+		SELECT * 
+			FROM FREEBOARD_FILE
+			WHERE FREEBOARD_NUM = #freeboard_num#		
+	</statement>
+	
+	<insert id="insertFileItem" parameterClass="freeboard_filevo">
+		<selectKey keyProperty="free_file_num">
+			SELECT SEQ_FREEBOARD_FILE.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO FREEBOARD_FILE(FREE_FILE_NUM
+								  ,FREEBOARD_NUM
+								  ,FREE_FILE_EVENTN
+								  ,FREE_FILE_NAME
+								  ,FREE_FILE_SAVENAME
+								  ,FREE_FILE_SIZE)
+						 VALUES(#free_file_num#
+						 		,#freeboard_num#
+						 		,#free_file_eventn#
+						 		,#free_file_name#
+						 		,#free_file_savename#
+						 		,#free_file_size#)
+
+	</insert>
+	
+	<select id="freefileItemInfo" parameterClass="map" resultClass="freeboard_filevo">
+		SELECT * 
+			FROM FREEBOARD_FILE
+		WHERE FREE_FILE_NUM = #free_file_num#
+	</select>
+</sqlMap> 

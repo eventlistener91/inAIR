@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="freeboard">
+	<typeAlias alias="FreeboardVO" type="kr.or.inair.vo.FreeboardVO"/>
+	
+	<resultMap id="freeboardResultMap" class="FreeboardVO">
+		<result property="freeboard_num" column="freeboard_num"/>
+		<result property="freeboard_cn" column="freeboard_cn"/>
+		<result property="freeboard_delete" column="freeboard_delete"/>
+		<result property="freeboard_depth" column="freeboard_depth"/>
+		<result property="freeboard_group" column="freeboard_group"/>
+		<result property="freeboard_hit" column="freeboard_hit"/>
+		<result property="freeboard_rgsde" column="freeboard_rgsde"/>
+		<result property="freeboard_sj" column="freeboard_sj"/>
+		<result property="freeboard_sn" column="freeboard_sn"/>
+		<result property="indvdl_id" column="indvdl_id"/>
+		<result property="items" column="freeboard_num" select="freeboard_file.freeboardfileitemList"/>
+	</resultMap>
+			
+	<sql id="selectAll">
+		SELECT * FROM FREEBOARD
+		 WHERE FREEBOARD_DELETE ='N' 
+	</sql>
+	
+	<sql id="selectlistAll">
+	<![CDATA[
+		SELECT * FROM FREEBOARD
+		WHERE FREEBOARD_DELETE ='N' 
+		  AND FREEBOARD_DEPTH < 1
+	 ]]> 
+	</sql>
+	
+	
+	<select id="freeboardInfo" parameterClass="map" resultMap="freeboardResultMap">
+		<include refid="selectAll"/>
+		AND FREEBOARD_NUM = #freeboard_num#
+	</select>
+	
+	<update id="updateHIT" parameterClass="map">
+		UPDATE FREEBOARD
+		   SET FREEBOARD_HIT = FREEBOARD_HIT +1
+		 WHERE FREEBOARD_NUM = #freeboard_num#
+	</update>
+	
+	<sql id="searchCondition">
+		<dynamic prepend="AND">
+			<isNotEmpty property="search_keyword">
+				<isEqual property="search_keycode" compareValue="TOTAL" open="(" close=")">
+						FREEBOARD_SJ LIKE '%'||#search_keyword#||'%'
+					 OR FREEBOARD_CN LIKE '%'||#search_keyword#||'%'
+					 OR INDVDL_ID LIKE '%'||#search_keyword#||'%'  	
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="SJ">
+					 FREEBOARD_SJ LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="CN">
+					 FREEBOARD_CN LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+				<isEqual property="search_keycode" compareValue="ID">
+					 INDVDL_ID LIKE '%'||#search_keyword#||'%'
+				</isEqual>
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<select id="freeboardlist" resultClass="FreeboardVO" parameterClass="map">
+		SELECT B.*
+		FROM( SELECT ROWNUM rnum, A.*
+ 			FROM (<include refid="selectlistAll"/>
+ 				  <include refid="searchCondition"/>
+			    	  ORDER BY FREEBOARD_GROUP, FREEBOARD_SN DESC) A) B
+		<![CDATA[
+		WHERE B.RNUM <= #startCount# 
+		  AND B.RNUM >= #endCount# 
+		]]> 
+	    ORDER BY B.RNUM DESC 	  	  
+	</select>
+			
+	
+	<select id="freeboardcomment" resultClass="FreeboardVO" parameterClass="map">
+		SELECT B.*
+		  FROM( SELECT ROWNUM rnum, A.*
+		  		  FROM( SELECT * FROM FREEBOARD 
+		  				ORDER BY FREEBOARD_GROUP, FREEBOARD_SN DESC)A)B
+		  	 <![CDATA[
+		  		 WHERE B.FREEBOARD_GROUP=#freeboard_group#
+		  		   AND B.FREEBOARD_DELETE ='N'
+		  		   AND B.FREEBOARD_DEPTH > 0
+		  		 	
+		  	 ]]> 
+			 ORDER BY B.RNUM DESC 
+	</select>
+	
+	
+	<select id="totalCount" parameterClass="map" resultClass="string">
+		<![CDATA[
+		SELECT COUNT(FREEBOARD_SN)
+		  FROM FREEBOARD
+		 WHERE FREEBOARD_DELETE ='N' 
+		   AND FREEBOARD_DEPTH < 1
+		 ]]> 
+		<include refid="searchCondition"/>
+	</select>
+
+	<update id="updateFreeboard" parameterClass="FreeboardVO">
+		UPDATE FREEBOARD
+		   SET FREEBOARD_SJ = #freeboard_sj#
+			   ,FREEBOARD_CN = #freeboard_cn#
+		 WHERE FREEBOARD_NUM = #freeboard_num#
+	</update>
+	
+	<update id="updateComment" parameterClass="FreeboardVO">
+		UPDATE FREEBOARD
+		   SET FREEBOARD_CN = #freeboard_cn#
+		WHERE FREEBOARD_NUM = #freeboard_num#
+	</update>
+	
+    <delete id="deleteFreeboard" parameterClass="map">
+    	UPDATE FREEBOARD
+    	   SET FREEBOARD_DELETE ='Y'
+    	WHERE FREEBOARD_NUM = #freeboard_num#
+    </delete>
+    
+    <select id="incrementSEQ" parameterClass="FreeboardVO" resultClass="string">
+    	SELECT MAX(FREEBOARD_SN) +1
+    	  FROM FREEBOARD
+    	 WHERE FREEBOARD_GROUP = #freeboard_group#
+    </select>
+    
+    <update id="updateSEQ" parameterClass="FreeboardVO">
+       UPDATE FREEBOARD
+    	  SET FREEBOARD_SN =FREEBOARD_SN +1 
+    	WHERE FREEBOARD_GROUP = #freeboard_group#
+    	  AND FREEBOARD_SN > #freeboard_sn#
+    </update>
+
+    <insert id="insertFreeboard" parameterClass="FreeboardVO">
+    	<selectKey keyProperty="freeboard_num" resultClass="string">
+    		SELECT SEQ_FREEBOARD.NEXTVAL FROM DUAL
+    	</selectKey>
+    	INSERT INTO FREEBOARD(FREEBOARD_NUM
+    						  ,FREEBOARD_SJ
+    						  ,FREEBOARD_CN
+    						  ,FREEBOARD_GROUP
+    						  ,INDVDL_ID)
+    				VALUES(#freeboard_num#
+    					   ,#freeboard_sj#
+    					   ,#freeboard_cn#
+    					   ,#freeboard_num#
+    					   ,#indvdl_id#)
+    </insert>
+    
+
+    
+    <insert id="insertFreeboardReply" parameterClass="FreeboardVO">
+    	<selectKey keyProperty="freeboard_num">
+    		SELECT SEQ_FREEBOARD.NEXTVAL FROM DUAL
+    	</selectKey>
+    	INSERT INTO FREEBOARD(FREEBOARD_NUM
+    						 ,FREEBOARD_SJ
+    						 ,INDVDL_ID
+    						 ,FREEBOARD_CN
+    						 ,FREEBOARD_GROUP
+    						 ,FREEBOARD_SN
+    						 ,FREEBOARD_DEPTH)
+    				  VALUES(#freeboard_num#
+    				  		 ,#freeboard_sj#
+    				  		 ,#indvdl_id#
+    				  		 ,#freeboard_cn#
+    				  		 ,#freeboard_group#
+    				  		 ,#freeboard_sn#
+    				  		 ,#freeboard_depth#)
+    </insert>
+    
+
+    
+</sqlMap> 

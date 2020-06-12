@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="recruitmentField">
+	<typeAlias alias="recruitmentFieldVO" type="kr.or.inair.vo.Recruitment_FieldVO"/>
+	
+	<resultMap id="recruitmentFieldMap" class="recruitmentFieldVO">
+		<result property="recruitment_field_num" column="recruitment_field_num" />
+		<result property="recruitment_field_career" column="recruitment_field_career"/>
+		<result property="recruitment_field_job" column="recruitment_field_job"/>
+		<result property="recruitment_field_name" column="recruitment_field_name"/>
+		<result property="recruitment_field_personnel" column="recruitment_field_personnel"/>
+		<result property="recruitment_field_department" column="recruitment_field_department"/>
+		<result property="clsf_num" column="clsf_num"/>
+		<result property="jo_num" column="jo_num"/>
+		<result property="careerhistory_num" column="careerhistory_num"/>
+		<result property="clsfString" column="clsf_num" select="classOfPosition.selectClsfName"/>
+	</resultMap>
+	
+	<statement id="recruitmentField.recruitmentFieldList" resultMap="recruitmentFieldMap">
+		SELECT * 
+		FROM   RECRUITMENT_FIELD 
+		WHERE  JO_NUM = #jo_num#
+	</statement>
+	
+	<insert id="insertRecruitmentFieldInfo" parameterClass="recruitmentFieldVO">
+		INSERT INTO RECRUITMENT_FIELD (RECRUITMENT_FIELD_NUM
+									  ,RECRUITMENT_FIELD_CAREER
+									  ,RECRUITMENT_FIELD_JOB
+									  ,RECRUITMENT_FIELD_NAME
+									  ,JO_NUM
+									  ,RECRUITMENT_FIELD_PERSONNEL
+									  <isNotEmpty property="recruitment_field_department">
+									  ,RECRUITMENT_FIELD_DEPARTMENT
+									  </isNotEmpty>
+									  ,CLSF_NUM)
+		VALUES(SEQ_RECRUITMENT_FIELD.NEXTVAL
+			  ,#recruitment_field_career#
+			  ,#recruitment_field_job#
+			  ,#recruitment_field_name#
+			  ,#jo_num#
+			  ,#recruitment_field_personnel#
+			  <isNotEmpty property="recruitment_field_department">
+			  ,#recruitment_field_department#
+			  </isNotEmpty>
+			  ,#clsf_num#)
+	</insert>
+</sqlMap> 

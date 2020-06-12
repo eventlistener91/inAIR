@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="companyInfo">
+	<typeAlias alias="companyInfoVO" type="kr.or.inair.vo.CompanyInfoVO"/>
+	
+	<statement id="getMyPageCompanyInfoList" resultClass="companyInfoVO">
+		SELECT * FROM COMPANYINFO WHERE CORP_CODE = #corp_code# 
+	</statement>
+	
+	<insert id="insertCompanyInfo" parameterClass="Map">
+		INSERT INTO COMPANYINFO VALUES (SEQ_COMPANYINFO.NEXTVAL, 
+										#corp_code#, 
+										#sexdstn#, 
+										#rgllbr_co#, 
+										#cnttk_co#, 
+										#sm#, 
+										#fyer_salary_totamt#, 
+										#jan_salary_am#)
+	</insert>
+	
+	<insert id="insertCompanyInfoByVO" parameterClass="companyInfoVO">
+		INSERT INTO COMPANYINFO VALUES (SEQ_COMPANYINFO.NEXTVAL, 
+										#corp_code#, 
+										#sexdstn#, 
+										#rgllbr_co#, 
+										#cnttk_co#, 
+										#sm#, 
+										#fyer_salary_totamt#, 
+										#jan_salary_am#)
+	</insert>
+	
+	<select id="getCompanyInfo" parameterClass="String" resultClass="companyInfoVO">
+		SELECT * FROM COMPANYINFO WHERE CORP_CODE = #corp_code#
+	</select>
+	
+	<update id="updateCompanyInfo" parameterClass="companyInfoVO">
+		UPDATE COMPANYINFO 
+		SET    RGLLBR_CO = #rgllbr_co#
+			  ,CNTTK_CO = #cnttk_co#
+			  ,SM = #sm#
+			  ,FYER_SALARY_TOTAMT = #fyer_salary_totamt#
+			  ,JAN_SALARY_AM = #jan_salary_am#
+		WHERE  INFO_NUM = #info_num#	  
+	</update>
+</sqlMap> 

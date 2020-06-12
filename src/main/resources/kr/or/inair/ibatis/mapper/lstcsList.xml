@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="lstcsList">
+	<typeAlias alias="LSTCS_ListVO" type="kr.or.inair.vo.LSTCS_ListVO"/>
+	
+	<statement id="lstcsListList" resultClass="LSTCS_ListVO">
+		SELECT LSTCS_DTLS_NUM
+			  ,LANG_NUM
+			  ,SCORE
+			  ,GRAD
+			  ,TO_CHAR(ACQDT, 'YYYY-MM-DD') AS ACQDT
+			  ,LANG_TEST_NAME
+			  ,RESUME_NUM 
+		FROM   LSTCS_LIST 
+		WHERE  RESUME_NUM = #resume_num# 
+	</statement>
+	
+	<insert id="insertLstcsListInfo" parameterClass="LSTCS_ListVO">
+		INSERT INTO LSTCS_LIST(LSTCS_DTLS_NUM
+								,LANG_NUM
+								,SCORE
+								,GRAD
+								,ACQDT
+								,LANG_TEST_NAME
+								,RESUME_NUM)
+		VALUES(SEQ_LSTCS_LIST.NEXTVAL
+			  ,#lang_num#
+			  ,#score#
+			  ,#grad#
+			  ,#acqdt#
+			  ,#lang_test_name#
+			  ,#resume_num#)						  
+	</insert>	
+	
+	<update id="updateLstcsListInfo" parameterClass="LSTCS_ListVO">
+		UPDATE LSTCS_LIST 
+		SET    LANG_NUM = #lang_num#
+			  ,SCORE = #score#
+			  ,GRAD = #grad#
+			  ,ACQDT = #acqdt#
+			  ,LANG_TEST_NAME = #lang_test_name#
+		WHERE  LSTCS_DTLS_NUM = #lstcs_dtls_num#	
+	</update>
+</sqlMap> 

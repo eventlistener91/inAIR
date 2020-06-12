@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/companyMember/**/*.do"/>
+			<mvc:mapping path="/individualMember/**/*.do"/>
+			<mvc:mapping path="/**/*.do"/>
+			<bean class="kr.or.inair.interceptor.HeaderTitle"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+<!-- 	<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/companyMember/**/*.do"/> -->
+<!-- 			<bean class="kr.or.inair.interceptor.HeaderTitle"></bean> -->
+<!-- 		</mvc:interceptor> -->
+<!-- 	</mvc:interceptors> -->
+
+<!-- 수정전 -->
+<!-- 	<mvc:interceptors> -->
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/user/**/*.do"/> -->
+<!-- 			<bean class="kr.or.ddit.interceptor.IPCheckInterceptor"></bean> -->
+<!-- 		</mvc:interceptor> -->
+<!-- 		  로그인 안하고 접근시 로그인 폼 or 회원가입폼으로  -->
+<!-- 			   경로를 잘못 설정하면 무한루프 돌수있기때문에 배제하는 패스 설정 가능  --> 
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/user/**/*.do"/> -->
+<!-- 			<mvc:exclude-mapping path="/user/freeboard/freeboardList.do"/> -->
+<!-- 			<mvc:exclude-mapping path="/user/join/loginCheck.do"/> -->
+<!-- 			<bean class="kr.or.ddit.interceptor.LoginCheckInterceptor"></bean> -->
+<!-- 		</mvc:interceptor> -->
+<!-- 	</mvc:interceptors> -->
+</beans>

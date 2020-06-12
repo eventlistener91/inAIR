@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="indvdlmem">
+	<typeAlias alias="INDVDLMEMVO" type="kr.or.inair.vo.INDVDLMEMVO"/>
+	<typeAlias alias="RESUMEVO" type="kr.or.inair.vo.ResumeVO"/>
+	<typeAlias alias="ADMINCHARTVO" type="kr.or.inair.vo.AdminChartVO"/>
+	
+	<resultMap id="individualMemberMap" class="INDVDLMEMVO">
+		<result property="indvdl_id" column="indvdl_id"/>
+		<result property="indvdl_pass" column="indvdl_pass"/>
+		<result property="indvdl_name" column="indvdl_name"/>
+		<result property="indvdl_bir" column="indvdl_bir"/>
+		<result property="indvdl_tel" column="indvdl_tel"/>
+		<result property="indvdl_mail" column="indvdl_mail"/>
+		<result property="indvdl_gend" column="indvdl_gend"/>
+		<result property="indvdl_adres1" column="indvdl_adres1"/>
+		<result property="indvdl_adres2" column="indvdl_adres2"/>
+		<result property="indvdl_delete" column="indvdl_delete"/>
+		<result property="mentoranswer_regist" column="mentoranswer_regist"/>
+		<result property="enterreview_possible_date" column="enterreview_possible_date"/>
+		<result property="fin_acdmcr_num" column="fin_acdmcr_num"/>
+		<result property="hopepro_num" column="hopepro_num"/>
+		<result property="indvdl_secsn" column="indvdl_secsn"/>
+		<result property="indvdl_social" column="indvdl_social"/>
+		<result property="pictures" column="indvdl_id" select="idPicture.idPictureList"/>
+	</resultMap>
+	
+	<sql id="selectAll">
+		SELECT * 
+			FROM INDVDLMEM
+		WHERE INDVDL_DELETE = 'N'
+	</sql>
+	
+	<sql id="searchCondition">
+		<dynamic prepend="and">
+			<isNotEmpty property="search_indvdl_id" prepend="and">
+				INDVDL_ID LIKE '%' || #search_indvdl_id# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="search_indvdl_name" prepend="and">
+				INDVDL_NAME LIKE '%' || #search_indvdl_name# || '%' 
+			</isNotEmpty>
+			<isNotEmpty property="search_indvdl_mail" prepend="and">
+				INDVDL_MAIL LIKE '%' || #search_indvdl_mail# || '%' 
+			</isNotEmpty>
+			<isNotEmpty property="search_gender" prepend="and">
+				INDVDL_GEND = #search_gender# 
+			</isNotEmpty>
+			<isNotEmpty property="search_indvdl_adres1_1" prepend="and">
+				INDVDL_ADRES1 LIKE '%' || #search_indvdl_adres1_1# || '%' 
+			</isNotEmpty>
+			<isNotEmpty property="search_indvdl_adres1_2" prepend="and">
+				INDVDL_ADRES1 LIKE '%' || #search_indvdl_adres1_2# || '%' 
+			</isNotEmpty>
+			<isNotEmpty property="search_fin_acdmcr_num" prepend="and">
+				FIN_ACDMCR_NUM = #search_fin_acdmcr_num# 
+			</isNotEmpty>
+			<isNotEmpty property="search_hopepro_num" prepend="and">
+				HOPEPRO_NUM = #search_hopepro_num# 
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+
+	<select id="indvdlmemInfo" parameterClass="map" resultMap="individualMemberMap">
+		<include refid="selectAll"/>
+		 	<dynamic>
+		 		<isNotEmpty property="indvdl_id" prepend="AND">
+		 			INDVDL_ID = #indvdl_id#
+		 		</isNotEmpty>
+		 		<isNotEmpty property="indvdl_pass" prepend="AND">
+		 			INDVDL_PASS = #indvdl_pass#
+		 		</isNotEmpty>
+		 		<isNotEmpty property="indvdl_mail" prepend="AND">
+		 			INDVDL_MAIL = #indvdl_mail#
+		 		</isNotEmpty>
+		 	</dynamic>
+	</select>
+	
+	<select id="searchid" parameterClass="map" resultClass="INDVDLMEMVO">
+		<include refid="selectAll"/>
+			AND INDVDL_NAME = #indvdl_name#
+			AND INDVDL_MAIL = #indvdl_mail#
+	</select>
+	
+	<select id="searchpass" parameterClass="map" resultClass="INDVDLMEMVO">
+		<include refid="selectAll"/>
+		AND INDVDL_ID = #indvdl_id#
+		AND INDVDL_MAIL= #indvdl_mail#
+	</select>
+	
+ 	<update id="updatePassword" parameterClass="map">
+ 		UPDATE INDVDLMEM 
+ 			SET INDVDL_PASS = #indvdl_pass# 
+ 		WHERE INDVDL_ID = #indvdl_id# 
+	</update> 
+
+	<insert id="insertIndvdlMember" parameterClass="INDVDLMEMVO">
+		INSERT INTO INDVDLMEM VALUES(
+								     #indvdl_id#, 
+								     #indvdl_pass#,
+								     #indvdl_name#, 
+								     #indvdl_bir#, 
+								     #indvdl_tel#, 
+								     #indvdl_mail#, 
+								     #indvdl_gend#, 
+								     #indvdl_adres1#, 
+								     #indvdl_adres2#, 
+								     'N', 
+								     0, 
+								     to_char(add_months(sysdate, 1), 'YYYY/MM/DD'), 
+								     #fin_acdmcr_num#, 
+								     #hopepro_num#, 
+								     null,
+								     #indvdl_social#)
+	</insert>
+
+	<select id="duplCheck" parameterClass="Map" resultClass="INDVDLMEMVO">
+		SELECT * FROM INDVDLMEM
+		<dynamic>
+			<isNotEmpty property="indvdl_mail" prepend="WHERE">
+				INDVDL_MAIL = #indvdl_mail#
+			</isNotEmpty>
+			<isNotEmpty property="indvdl_id" prepend="WHERE">
+				INDVDL_ID = #indvdl_id#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getIndvdlMemCount" resultClass="int">
+		SELECT COUNT(*) FROM INDVDLMEM WHERE INDVDL_DELETE = 'N'
+	</select>
+	
+	<update id="updateIndivdualMember" parameterClass="INDVDLMEMVO">
+		update indvdlmem
+		   set indvdl_name = #indvdl_name#
+			   ,indvdl_bir = #indvdl_bir#
+			   ,indvdl_tel = #indvdl_tel#
+			   ,indvdl_mail = #indvdl_mail#
+			   ,indvdl_gend = #indvdl_gend#
+			   ,indvdl_adres1 = #indvdl_adres1#
+			   ,indvdl_adres2 = #indvdl_adres2#
+		where indvdl_id = #indvdl_id#
+	</update>
+	
+	<select id="adminGetINDVDLMemList" parameterClass="Map" resultClass="INDVDLMEMVO">
+		SELECT B.*
+		FROM   (SELECT ROWNUM RNUM, A.*
+		  		FROM   (SELECT *
+		  		        FROM   INDVDLMEM 
+		  		        WHERE  INDVDL_DELETE = 'N' 
+		  		        <include refid="searchCondition"/>
+		  		        ORDER  BY INDVDL_NAME) A)B
+		<![CDATA[
+		WHERE  B.RNUM >= #startCount#
+		AND    B.RNUM <= #endCount#
+		]]>  		        
+	</select>
+	
+	<select id="adminGetDeleteINDVDLMemList" parameterClass="Map" resultClass="INDVDLMEMVO">
+		SELECT B.*
+		FROM   (SELECT ROWNUM RNUM, A.*
+		  		FROM   (SELECT *
+		  		        FROM   INDVDLMEM 
+		  		        WHERE  INDVDL_DELETE = 'Y' 
+		  		        <include refid="searchCondition"/>
+		  		        ORDER  BY INDVDL_NAME) A)B
+		<![CDATA[
+		WHERE  B.RNUM >= #startCount#
+		AND    B.RNUM <= #endCount#
+		]]>  		        
+	</select>
+	
+	<select id="indivdlInfo" parameterClass="map" resultMap="individualMemberMap">
+		<include refid="selectAll"/>
+		and indvdl_id = #indvdl_id#
+		 or indvdl_mail = #indvdl_mail#
+		 or indvdl_tel = #indvdl_tel#
+	</select>
+	
+	<select id="getTotalCount" parameterClass="Map" resultClass="String">
+		SELECT COUNT(INDVDL_ID) 
+		FROM   INDVDLMEM 
+		WHERE  INDVDL_DELETE = 'N'
+		<include refid="searchCondition"/>
+	</select>
+	
+	<select id="getDeleteINDVDLMEMTotalCount" parameterClass="Map" resultClass="String">
+		SELECT COUNT(INDVDL_ID) 
+		FROM   INDVDLMEM 
+		WHERE  INDVDL_DELETE = 'Y' 
+		<include refid="searchCondition"/>
+	</select>
+	
+	<update id="passwordChange" parameterClass="map">
+		update indvdlmem
+		   set indvdl_pass = #indvdl_pass#
+		 where indvdl_id = #indvdl_id#
+	</update>
+	
+	<select id="adminGetINDVDLMEMInfo" parameterClass="String" resultClass="INDVDLMEMVO">
+		SELECT A.INDVDL_ID,
+		       A.INDVDL_NAME,
+		       A.INDVDL_BIR,
+		       A.INDVDL_TEL,
+		       A.INDVDL_MAIL,
+		       A.INDVDL_GEND,
+		       A.INDVDL_ADRES1,
+		       A.INDVDL_ADRES2,
+		       A.INDVDL_SECSN,
+		       B.FIN_ACDMCR AS FIN_ACDMCR_STRING,
+		       C.LOWPRO_NAME AS HOPEPRO_STRING
+		FROM   INDVDLMEM A, 
+		       FINAL_ACADEMIC B, 
+		       LOWPRO C
+		WHERE  INDVDL_ID = #indvdl_id#
+		AND    A.FIN_ACDMCR_NUM = B.FIN_ACDMCR_NUM 
+		AND    A.HOPEPRO_NUM = C.LOWPRO_NUM
+	</select>
+	
+	<update id="deleteIndvdlMem" parameterClass="Map">
+		update indvdlmem
+		   set indvdl_delete = 'Y',
+		       indvdl_secsn = #indvdl_secsn#
+		 where indvdl_id = #indvdl_id#
+	</update>
+	
+	<select id="individualMember" parameterClass="String" resultMap="individualMemberMap">
+		select *
+		  from indvdlmem
+		 where indvdl_id = #indvdl_id#
+	</select>
+	
+	<select id="getLoginINDVDLMEMInfo" parameterClass="String" resultClass="INDVDLMEMVO">
+		SELECT * 
+		FROM   indvdlmem
+		WHERE  indvdl_id = #indvdl_id#
+	</select>
+	
+	<select id="genderChart" resultClass="ADMINCHARTVO">
+	select A.F AS FCOUNT,
+      	   B.M AS MCOUNT
+  	FROM(SELECT COUNT(*) AS F FROM INDVDLMEM WHERE INDVDL_GEND = '여성')A,
+        (SELECT COUNT(*) AS M FROM INDVDLMEM WHERE INDVDL_GEND ='남성')B
+	</select>
+	
+	<select id="workChart" resultClass="RESUMEVO">
+	 select A.INGCOUNT,
+	 		B.ENDCOUNT,
+	 		C.WORKCOUNT
+	 FROM(SELECT COUNT(*) AS INGCOUNT FROM RESUME WHERE WORK_NUM='21')A,
+	 	 (SELECT COUNT(*) AS ENDCOUNT FROM RESUME WHERE WORK_NUM='3' )B,
+	 	 (SELECT COUNT(*) AS WORKCOUNT FROM RESUME WHERE WORK_NUM='4' )C 
+	</select>
+	
+	<select id="IndvdlDrop" resultClass="ADMINCHARTVO">
+    SELECT A.INDVDLDROP1,
+		   B.INDVDLDROP2,
+		   C.INDVDLDROP3,
+		   D.INDVDLDROP4,
+		   E.INDVDLDROP5,
+		   F.INDVDLDROP6,
+		   G.INDVDLDROP7,
+		   H.INDVDLDROP8,
+		   I.INDVDLDROP9,
+           J.INDVDLDROP10
+	FROM (SELECT COUNT(*) AS INDVDLDROP1 FROM INDVDLMEM WHERE INDVDL_SECSN='구직완료')A,
+		 (SELECT COUNT(*) AS INDVDLDROP2 FROM INDVDLMEM WHERE INDVDL_SECSN='한시 사용 목적 아이디')B,
+		 (SELECT COUNT(*) AS INDVDLDROP3 FROM INDVDLMEM WHERE INDVDL_SECSN='서비스 기능 불만')C,
+		 (SELECT COUNT(*) AS INDVDLDROP4 FROM INDVDLMEM WHERE INDVDL_SECSN='개인정보 및 보안 우려')D,
+		 (SELECT COUNT(*) AS INDVDLDROP5 FROM INDVDLMEM WHERE INDVDL_SECSN='더이상 이용 안함')E,
+		 (SELECT COUNT(*) AS INDVDLDROP6 FROM INDVDLMEM WHERE INDVDL_SECSN='아이디 변경/재가입을 위해')F,
+		 (SELECT COUNT(*) AS INDVDLDROP7 FROM INDVDLMEM WHERE INDVDL_SECSN='타 사이트의 유사서비스 이용')G,
+		 (SELECT COUNT(*) AS INDVDLDROP8 FROM INDVDLMEM WHERE INDVDL_SECSN='찾고자 하는 정보가 없음')H,
+		 (SELECT COUNT(*) AS INDVDLDROP9 FROM INDVDLMEM WHERE INDVDL_SECSN='이용 불편')I,
+         (SELECT COUNT(*) AS INDVDLDROP10 FROM INDVDLMEM WHERE INDVDL_SECSN LIKE '%[기타]%')J	
+	</select>
+	
+	<select id="ageIndvdlChart" resultClass="ADMINCHARTVO">
+	SELECT A.AGESCOPE1,
+		       B.AGESCOPE2,
+		       C.AGESCOPE3,
+		       D.AGESCOPE4,
+		       E.AGESCOPE5
+		FROM   (SELECT COUNT(*) AS agescope1
+		        FROM  INDVDLMEM I
+		        WHERE  TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 20 AND 29) A,
+		       (SELECT COUNT(*) AS agescope2
+		        FROM    INDVDLMEM I
+		        WHERE TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 30 AND 39) B,
+		       (SELECT COUNT(*) AS agescope3
+		        FROM  INDVDLMEM I
+		        WHERE TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 40 AND 49) C,
+		       (SELECT COUNT(*) AS agescope4
+		        FROM   INDVDLMEM I
+		        WHERE  TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 50 AND 59) D,
+		       (SELECT COUNT(*) AS agescope5
+		        FROM   INDVDLMEM I
+		        WHERE TRUNC(MONTHS_BETWEEN(TRUNC(SYSDATE), TO_DATE(INDVDL_BIR,'YYYYMMDD')) / 12 +1) BETWEEN 60 AND 69) E
+	</select>
+	
+	<select id="finAcdmcr" resultClass="ADMINCHARTVO">
+	SELECT A.FINACDMCR1,
+		   B.FINACDMCR2,
+		   C.FINACDMCR3,
+		   D.FINACDMCR4,
+		   E.FINACDMCR5,
+		   F.FINACDMCR6,
+		   G.FINACDMCR7,
+		   H.FINACDMCR8
+	FROM (SELECT COUNT(*) AS FINACDMCR1 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='21')A,
+		 (SELECT COUNT(*) AS FINACDMCR2 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='22')B,
+		 (SELECT COUNT(*) AS FINACDMCR3 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='41')C,
+		 (SELECT COUNT(*) AS FINACDMCR4 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='1')D,
+		 (SELECT COUNT(*) AS FINACDMCR5 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='2')E,
+		 (SELECT COUNT(*) AS FINACDMCR6 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='3')F,
+		 (SELECT COUNT(*) AS FINACDMCR7 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='4')G,
+		 (SELECT COUNT(*) AS FINACDMCR8 FROM INDVDLMEM WHERE FIN_ACDMCR_NUM='5')H
+	</select>
+	
+	<select id="adminBoardChart" resultClass="ADMINCHARTVO">
+	    SELECT A.ADMINBOARD1,
+			   B.ADMINBOARD2,
+			   C.ADMINBOARD3,
+			   D.ADMINBOARD4
+		FROM (SELECT COUNT(notice_num) AS ADMINBOARD1 FROM NOTICE WHERE NOTICE_DELETE ='N')A,
+			 (SELECT COUNT(freeboard_num) AS ADMINBOARD2 FROM FREEBOARD WHERE FREEBOARD_DELETE = 'N' AND <![CDATA[FREEBOARD_DEPTH<1	]]> )B,
+			 (SELECT COUNT(mentor_num) AS ADMINBOARD3 FROM MENTOR WHERE MENTOR_DELETE ='N' AND  <![CDATA[ MENTOR_DEPTH<1 ]]> )C,
+			 (SELECT COUNT(res_num) AS ADMINBOARD4 FROM RESBOARD WHERE RES_DELETE ='N' AND <![CDATA[ RES_DEPTH<1 ]]>)D
+	</select>
+	
+</sqlMap> 

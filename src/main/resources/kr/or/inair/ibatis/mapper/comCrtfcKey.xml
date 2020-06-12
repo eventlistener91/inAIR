@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="comCrtfcKey">
+	<typeAlias alias="comCrtfcKeyVO" type="kr.or.inair.vo.Com_CrtfcKeyVO"/>
+	
+	<select id="getComCrtfcKey" parameterClass="Map" resultClass="comCrtfcKeyVO">
+		SELECT * FROM COM_CRTFCKEY WHERE CORP_NAME LIKE '%' || #corp_name# || '%'
+	</select>
+	
+	<select id="getComNameList" parameterClass="String" resultClass="comCrtfcKeyVO">
+		SELECT CORP_NAME, CORP_CODE FROM COM_CRTFCKEY WHERE CORP_NAME LIKE #corp_name# || '%'
+	</select>
+	
+</sqlMap> 

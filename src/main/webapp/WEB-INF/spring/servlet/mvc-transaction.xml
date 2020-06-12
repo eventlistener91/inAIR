@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<!-- 
+		스프링 프레임웍의 트랜젝션 설정 및 활용
+			1. AOP 활용(설정파일 내 xml 코드 구성)
+			2. 어노테이션 활용(서비스 레이어의 클래스 내 메서드 상간에 @Transactional)
+			
+			ex) class IMemberServiceImpl implements IMemberService {
+						@Transactional(propagation=Required_New(항상 새로운 트렌젝션을 만들어서 처리합니다), rollbackFor={SqlException.class, NextstedException.class....} )
+						@Transactional(propagation=Required_New(항상 새로운 트렌젝션을 만들어서 처리합니다), rollbackFor={Exception.class} )
+						public void insertMemberInfo(MemberVO memberInfo) throws Exception{
+							dao.isnertMemberInfo(membetInfo);
+						}
+			}
+		스프링 프레임뭑 트랜잭션 처리 프로세스
+			* 컨트롤러 메서드의 접근 지정자(반드시 public선언)
+																		트랜잭션 선언
+			DispatcherServlet			->		Controller Layer	->	Service Layer	->	DAO Layer(쿼리질의)
+			(WebApplicationContext)				트랜잭션 선언 정보 			트랜잭션 선언 정보		쿼리 정상 질의
+			 DataSourceTransactionManager		취득						전달(Controller Layer)
+			 트랜잭션 선언 정도 취득				===================================================================
+			 (트랜잭션 처리 -commit 					트랜잭션 선언 정보			트랜잭션 선언 정보		익셉션 전달(Service Layer)
+			 		  or rollback)				발생된 익셉션 정보			발생된 익셉션 정보
+			 
+			 									
+		proxy-target-class="false"	
+			@Transactional 
+			서비스 레이어 내 클래스가 Interface를 implements 하고,
+			@Transactional이 상단에 선언된 메서드가 Interface를 오버라이딩으로 활용 
+			
+		proxy-target-class="true"	
+			* CGLIB가 처리(해당 메서드의 프로토타입=메서드원형 추출 및 트랜젝션 메니저에 제공)
+			@Transactional 
+			서비스 레이어 내 클래스가 Interface를 implements 하지 않고,
+			@Transactional이 상단에 선언으로 활용 
+	 -->
+	 <!-- 2번을 하기 위한 설정 -->
+	 <tx:annotation-driven transaction-manager="transactionMGR" proxy-target-class="false"/>
+</beans>

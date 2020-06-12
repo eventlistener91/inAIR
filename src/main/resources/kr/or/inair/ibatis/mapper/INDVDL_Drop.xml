@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="indvdlDrop">
+	<typeAlias alias="dropVO" type="kr.or.inair.vo.INDVDL_DropVO"/>
+	
+	<select id="getIndvdlDropList" resultClass="dropVO">
+		SELECT * 
+		  FROM INDVDL_DROP  
+		 WHERE INDVDL_DELETE = 'N'
+	</select>
+	
+	<select id="adminIndvdlDropList" parameterClass="map" resultClass="dropVO">
+		SELECT B.*
+		FROM   (SELECT ROWNUM RNUM, A.*
+		  		FROM   (SELECT *
+		  		        FROM   INDVDL_DROP 
+		  		        WHERE  INDVDL_DELETE = 'N' 
+		  		        ORDER  BY INDVDL_SECSN_NUM) A)B
+	  <![CDATA[
+		WHERE  B.RNUM <= #startCount#
+		AND    B.RNUM >= #endCount#
+		]]>
+		ORDER BY B.RNUM DESC
+	</select>
+	
+	<select id="indvdlDropTotalCount" resultClass="String" >
+		SELECT COUNT(INDVDL_SECSN_NUM) 
+		FROM   INDVDL_DROP 
+		WHERE INDVDL_DELETE = 'N'
+	</select>
+	
+	<insert id="insertIndvdlDrop" parameterClass="dropVO">
+		<selectKey keyProperty="indvdl_secsn_num">
+		  SELECT SEQ_INDVDL_DROP.NEXTVAL FROM DUAL
+		</selectKey>
+		  INSERT INTO INDVDL_DROP(INDVDL_SECSN_NUM
+		  					  ,INDVDL_SECSN)
+		  			  VALUES(#indvdl_secsn_num#
+		  			  		,#indvdl_secsn#)
+	</insert>
+	
+	<delete id="deleteSalary" parameterClass="map">
+	     UPDATE INDVDL_DROP
+		    SET INDVDL_DELETE = 'Y'
+		  WHERE INDVDL_SECSN_NUM = #indvdl_secsn_num#
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap> 

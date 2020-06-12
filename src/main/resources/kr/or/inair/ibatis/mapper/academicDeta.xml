@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="academicDeta">
+	<typeAlias alias="academicDetaVO" type="kr.or.inair.vo.Academic_DetaVO"/>
+	
+	<statement id="academicDetaList" resultClass="academicDetaVO">
+		SELECT DET_ACDMCR_NUM
+			  ,TO_CHAR(DET_ACDMCR_ENTSCH, 'YYYY-MM-DD') AS DET_ACDMCR_ENTSCH
+			  ,TO_CHAR(DET_ACDMCR_GRDTN, 'YYYY-MM-DD') AS DET_ACDMCR_GRDTN
+			  ,DET_ACDMCR_SCHOOL
+			  ,DET_ACDMCR_MAJOR
+			  ,DET_ACDMCR_SUBJCT
+			  ,RESUME_NUM
+			  ,ACDMCR_NUM 
+		FROM   ACADEMIC_DETA 
+		WHERE  RESUME_NUM = #resume_num#
+	</statement>
+	
+	<insert id="insertAcademicDataInfo" parameterClass="academicDetaVO">
+		INSERT INTO ACADEMIC_DETA(DET_ACDMCR_NUM,
+								  DET_ACDMCR_ENTSCH,
+								  DET_ACDMCR_GRDTN,
+								  DET_ACDMCR_SCHOOL,
+							      <isNotEmpty property="det_acdmcr_major">
+								  DET_ACDMCR_MAJOR,
+							      </isNotEmpty>
+							      <isNotEmpty property="det_acdmcr_subjct">
+								  DET_ACDMCR_SUBJCT,
+							      </isNotEmpty>
+								  RESUME_NUM,
+								  ACDMCR_NUM)
+		VALUES(SEQ_ACADEMIC_DETA.NEXTVAL,
+			   #det_acdmcr_entsch#,
+			   #det_acdmcr_grdtn#,
+			   #det_acdmcr_school#,
+		  	   <isNotEmpty property="det_acdmcr_major">
+			   #det_acdmcr_major#,
+		  	   </isNotEmpty>
+		       <isNotEmpty property="det_acdmcr_subjct">
+			   #det_acdmcr_subjct#,
+		       </isNotEmpty>
+			   #resume_num#,
+			   #acdmcr_num#)						  
+	</insert>	
+	
+	<update id="updateAcademicDataInfo" parameterClass="academicDetaVO">
+		UPDATE ACADEMIC_DETA 
+		SET    DET_ACDMCR_ENTSCH = #det_acdmcr_entsch#,
+			   DET_ACDMCR_GRDTN = #det_acdmcr_grdtn#,
+			   DET_ACDMCR_SCHOOL = #det_acdmcr_school#
+		  	   <isNotEmpty property="det_acdmcr_major">
+			  ,DET_ACDMCR_MAJOR = #det_acdmcr_major#
+		       </isNotEmpty>
+		       <isNotEmpty property="det_acdmcr_subjct">
+			  ,DET_ACDMCR_SUBJCT = #det_acdmcr_subjct#
+		       </isNotEmpty>
+		WHERE  DET_ACDMCR_NUM = #det_acdmcr_num#   
+	</update>
+</sqlMap> 

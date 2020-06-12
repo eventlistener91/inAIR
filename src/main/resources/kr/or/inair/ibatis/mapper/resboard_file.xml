@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="reboard_file">
+	<typeAlias alias="reboard_filevo" type="kr.or.inair.vo.Resboard_FileVO"/>
+
+	<statement id="reboardfileitemList" resultClass="reboard_filevo">
+		SELECT * 
+			FROM RESBOARD_FILE
+			WHERE RES_NUM = #res_num#
+	</statement>
+	
+	<insert id="insertFileitem" parameterClass="reboard_filevo">
+		<selectKey keyProperty="res_file_num">
+			SELECT SEQ_RESBOARD_FILE.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO RESBOARD_FILE(RES_FILE_NUM
+								 ,RES_NUM
+								 ,RES_FILE_EVENTN
+								 ,RES_NAME
+								 ,RES_FILE_SAVENAME
+								 ,RES_FILE_SIZE)
+					 	VALUES(#res_file_num#
+					 		  ,#res_num#
+					 		  ,#res_file_eventn#
+					 		  ,#res_name#
+					 		  ,#res_file_savename#
+					 		  ,#res_file_size#)
+	</insert>
+	
+	<update id="updateFileitem" parameterClass="reboard_filevo">
+		UPDATE RESBOARD_FILE
+		   SET RES_NAME = #res_name#
+		   	  ,RES_FILE_SAVENAME = #res_file_savename#
+		   	  ,RES_FILE_EVENTN = #res_file_eventn#
+		   	  ,RES_FILE_SIZE = #res_file_size#
+		WHERE RES_NUM = #res_num#
+	</update>
+	
+	
+	
+	
+	<select id="resfileItemInfo" parameterClass="map" resultClass="reboard_filevo">
+		SELECT *
+			FROM RESBOARD_FILE
+		WHERE RES_FILE_NUM = #res_file_num#
+	</select>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</sqlMap>

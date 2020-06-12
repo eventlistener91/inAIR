@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="charDeta">
+	<typeAlias alias="charDetaVO" type="kr.or.inair.vo.CHAR_DETAVO"/>
+	
+	<resultMap id="charDetaMap" class="charDetaVO">
+		<result property="char_detail_num" column="char_detail_num"/>
+		<result property="char_element_num" column="char_element_num"/>
+		<result property="char_detail_lev" column="char_detail_lev"/>
+		<result property="char_detail_dc" column="char_detail_dc"/>
+		<result property="result" column="{char_element_num, char_detail_lev}" select="charResult.insertCharResult"/>
+	</resultMap>
+	
+	<select id="selectCharDeta" resultClass="charDetaVO" parameterClass="map">
+		select * 
+		  from char_deta
+		 where char_element_num = #char_element_num# and char_detail_lev = #char_detail_lev#
+	</select>
+	
+	<select id="getCharDetaList" resultClass="charDetaVO">
+		SELECT * 
+		FROM   CHAR_DETA 
+	</select>
+	
+</sqlMap>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="classOfPosition">
+	<typeAlias alias="classOfPositionVO" type="kr.or.inair.vo.ClassOfPositionVO"/>
+	
+	<statement id="selectClsfName" resultClass="String">
+		SELECT CLSF_NAME 
+		FROM   CLASSOFPOSITION 
+		WHERE  CLSF_NUM = #clsf_num#
+	</statement>
+	
+	<select id="getClassOfPositionList" resultClass="classOfPositionVO">
+		SELECT * 
+		FROM   CLASSOFPOSITION 
+	</select>
+	
+	<select id="selectAllClsf" resultClass="classOfPositionVO" parameterClass="map">
+        SELECT B.*
+        FROM (SELECT ROWNUM RNUM, A.*
+        	  FROM (SELECT *
+        	  		 FROM CLASSOFPOSITION
+        	  		WHERE CLSF_DELETE='N'
+        	  		ORDER BY CLSF_NUM)A)B
+        <![CDATA[
+		WHERE  B.RNUM <= #startCount#
+		AND    B.RNUM >= #endCount#
+		]]>
+		ORDER BY B.RNUM DESC
+	</select>
+	
+	<select id="totalClsf" resultClass="string">
+		SELECT COUNT(CLSF_NUM)
+		FROM CLASSOFPOSITION
+		WHERE CLSF_DELETE = 'N'
+	</select>
+	
+	<insert id="insertClsf" parameterClass="classOfPositionVO">
+		<selectKey keyProperty="clsf_num">
+			SELECT SEQ_CLASSOFPOSITION.NEXTVAL FROM DUAL
+		</selectKey>
+			INSERT INTO CLASSOFPOSITION(CLSF_NUM
+									   ,CLSF_NAME)
+							VALUES(#clsf_num#
+								  ,#clsf_name#)
+	</insert>
+	
+	<delete id="deleteClsf" parameterClass="map">
+		UPDATE CLASSOFPOSITION
+		   SET CLSF_DELETE = 'Y'
+		WHERE CLSF_NUM = #clsf_num#
+	</delete>
+	
+	
+	
+	
+	
+	
+</sqlMap> 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="recent_jo">
+	<typeAlias alias="recent_joVO" type="kr.or.inair.vo.Recent_JoVO"/>
+		
+	<insert id="insertRecentJo">
+		<selectKey keyProperty="jo_inquire_num" resultClass="String">
+			select seq_recentJO.nextval from dual
+		</selectKey>
+		insert into recent_jo (jo_inquire_num, jo_inquire_sj, jo_inquire_rgsde, jo_inquire_clos, indvdl_id, jo_num)
+			   values (#jo_inquire_num#, #jo_inquire_sj#, #jo_inquire_rgsde#, #jo_inquire_clos#, #indvdl_id#, #jo_num#)
+	</insert>
+	
+	<select id="selectRecentJo" resultClass="recent_joVO">
+		select * from (select distinct jo_num, 
+       						  jo_inquire_sj,
+       						  indvdl_id,
+       						  jo_inquire_rgsde,
+       						  jo_inquire_clos,
+       						  max(jo_inquire_num) as jo_inquire_num
+  						 from recent_jo
+ 						where indvdl_id = #indvdl_id#
+ 						group by jo_num, jo_inquire_sj, indvdl_id, jo_inquire_rgsde, jo_inquire_clos
+ 						order by jo_inquire_num desc)
+ 						<![CDATA[
+						where rownum <= 10
+						]]>
+	</select>
+	
+<!-- 	<SELECT ID="SELECTRECENTJO" RESULTCLASS="RECENT_JOVO"> -->
+<!-- 		SELECT DISTINCT JO_NUM, JO_INQUIRE_SJ, JO_INQUIRE_RGSDE, JO_INQUIRE_CLOS, INDVDL_ID  -->
+<!-- 		  FROM RECENT_JO -->
+<!-- 	</SELECT> -->
+	
+</sqlMap> 

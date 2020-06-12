@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="lowpro">
+	<typeAlias alias="lowPROVO" type="kr.or.inair.vo.LowProVO"/>
+	
+	<statement id="lowproList" resultClass="lowPROVO">
+		SELECT * 
+		FROM   LOWPRO 
+		WHERE  UPPRO_NUM = #uppro_num#
+		AND    LOWPRO_DELETE = 'N'
+	</statement>
+	
+	<statement id="selectLowproList" resultClass="lowPROVO">
+		SELECT A.LOWPRO_NUM, A.UPPRO_NUM, A.LOWPRO_NAME 
+		FROM   LOWPRO A, (SELECT UPPRO_NUM FROM LOWPRO WHERE LOWPRO_NUM = #lowpro_num#) B
+		WHERE  A.UPPRO_NUM = B.UPPRO_NUM
+		AND    LOWPRO_DELETE ='N'
+	</statement>
+	
+	<select id="getLowPROList" resultClass="lowPROVO">
+		SELECT * 
+		FROM   LOWPRO 
+		WHERE  UPPRO_NUM = #uppro_num#
+		AND    LOWPRO_DELETE = 'N'
+	</select>
+	
+	<select id="gowLowProfession" resultClass="lowPROVO">
+		SELECT * FROM LOWPRO WHERE LOWPRO_DELETE = 'N'
+	</select>
+	
+	
+	<select id="adminLowProList" resultClass="lowPROVO" parameterClass="map">
+		SELECT B.*
+        FROM (SELECT ROWNUM RNUM, A.*
+        	  FROM (SELECT *
+        	  		 FROM LOWPRO
+        	  		WHERE LOWPRO_DELETE='N'
+                    AND UPPRO_NUM = #uppro_num# 
+        	  		ORDER BY LOWPRO_NUM)A)B
+		ORDER BY B.RNUM DESC
+	</select>
+	
+	<insert id="insertAdminLowPro" parameterClass="lowPROVO">
+		<selectKey keyProperty="lowpro_num">
+			SELECT SEQ_LOWPRO.NEXTVAL FROM DUAL
+		</selectKey>
+			INSERT INTO LOWPRO(LOWPRO_NUM
+							 ,UPPRO_NUM
+							 ,LOWPRO_NAME)
+					VALUES(#lowpro_num#
+						   ,#uppro_num#
+						   ,#lowpro_name#)
+	</insert>
+	
+	<delete id="deleteAdminLowPro" parameterClass="map">
+		UPDATE LOWPRO
+		   SET LOWPRO_DELETE = 'Y'
+		 WHERE LOWPRO_NUM = #lowpro_num#
+	</delete>
+	
+	
+	
+	
+	
+	
+</sqlMap> 

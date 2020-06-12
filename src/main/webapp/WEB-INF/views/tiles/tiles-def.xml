@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<!-- AI모의면접 -->
+	<definition name="indvdlMember/AIIMTForm" template="/WEB-INF/views/individualMember/AIIMT/AIIMTForm.jsp"></definition>
+	
+	<!-- AI모의면접 결과 -->
+	<definition name="indvdlMember/AIIMTResult" template="/WEB-INF/views/individualMember/AIIMT/AIIMTResult.jsp"></definition>
+	
+	<!-- 개인회원 -->
+	<definition name="indvdlMember/mainView" template="/WEB-INF/views/individualMember/main/mainView.jsp"></definition>
+
+	<definition name="indvdlMember/main" template="/WEB-INF/views/individualMember/main/mainTemplate.jsp">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/individualMember/layout/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/individualMember/layout/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="indvdlMember/*/*" extends="indvdlMember/main">
+		<put-attribute name="content" value="/WEB-INF/views/individualMember/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 개인회원 로그인 -->
+	<definition name="indvdlMember/main/login" template="/WEB-INF/views/individualMember/login/loginTemplate.jsp">
+	</definition>
+	
+	<definition name="login/indvdlMember/*" extends="indvdlMember/main/login">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/individualMember/login/{1}.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 개인회원 회원가입 -->
+	<definition name="indvdlMember/join" template="/WEB-INF/views/individualMember/join/joinTemplate.jsp">
+	</definition>
+	
+	<definition name="join/indvdlMember/*" extends="indvdlMember/join">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/individualMember/join/{1}.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 인성역량검사 결과보기 -->
+	<definition name="indvdlMember/character/characterResultView" template="/WEB-INF/views/individualMember/character/characterResultView.jsp"></definition>
+
+	
+	<!-- 마이페이지 -->
+	<definition name="myPage/indvdlMember" template="/WEB-INF/views/individualMember/main/myPageTemplate.jsp">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/individualMember/layout/header.jsp"></put-attribute>
+		<put-attribute name="right" value="/WEB-INF/views/individualMember/layout/myPageRightSide.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/individualMember/layout/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="myPage/indvdlMember/*" extends="myPage/indvdlMember">
+		<put-attribute name="leftContent" value="/WEB-INF/views/individualMember/myPage/{1}.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="myPage/indvdlMember/resumeDownload" template="/WEB-INF/views/individualMember/myPage/resumeDownload.jsp"></definition>
+	<definition name="companyMember/jobOffer/resumeDownload" template="/WEB-INF/views/companyMember/jobOffer/resumeDownload.jsp"></definition>
+	
+	
+	<!-- 기업회원 -->
+	<definition name="companyMember/mainView" template="/WEB-INF/views/companyMember/main/mainView.jsp"></definition>
+	
+	<definition name="companyMember/main" template="/WEB-INF/views/companyMember/main/mainTemplate.jsp">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/companyMember/layout/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/companyMember/layout/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="companyMember/*/*" extends="companyMember/main">
+		<put-attribute name="content" value="/WEB-INF/views/companyMember/{1}/{2}.jsp"></put-attribute>	
+	</definition>
+	
+	<!-- 기업회원 회원가입 -->
+	<definition name="comMember/join" template="/WEB-INF/views/companyMember/join/joinTemplate.jsp">
+	</definition>
+	<definition name="join/comMember/*" extends="comMember/join">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/companyMember/join/{1}.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 테스트 -->
+	<definition name="a/a" template="/WEB-INF/views/tmp/mainView.jsp"></definition>
+	<definition name="indvdlMember/mail/mailForm" template="/WEB-INF/views/individualMember/mail/mailForm.jsp"></definition>
+	
+	<!-- 관리자 로그인 -->
+	<definition name="/admin/login/adminLoginForm" template="/WEB-INF/views/admin/login/adminLoginForm.jsp"></definition>
+	
+	<!-- 관리자 메인 -->
+	<definition name="admin/main" template="/WEB-INF/views/admin/main/mainTemplate.jsp">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/admin/layout/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/admin/layout/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin/*/*" extends="admin/main">
+		<put-attribute name="content" value="/WEB-INF/views/admin/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 관리자 메일 전송 -->
+	<definition name="admin/sendEmailForm" template="/WEB-INF/views/admin/member/sendEmailForm.jsp">
+	</definition>
+	
+	
+	
+	<!-- 게시판 -->
+	<definition name="board/main" template="/WEB-INF/views/individualMember/main/freeboardTemplate.jsp">
+		<put-attribute name="title" value="inAIR"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/individualMember/layout/header.jsp"></put-attribute>
+		<put-attribute name="left" value="/WEB-INF/views/individualMember/layout/freeboardRightSide.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/individualMember/layout/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="board/*/*" extends="board/main">
+		<put-attribute name="leftFreeboardContent" value="/WEB-INF/views/individualMember/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	
+	
+	
+</tiles-definitions>
+
+

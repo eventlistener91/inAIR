@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" 
+		enhancementEnabled="true"
+		lazyLoadingEnabled="true" 
+		maxRequests="32" 
+		maxSessions="10"
+		maxTransactions="5" 
+		useStatementNamespaces="true" />
+		
+	<sqlMap resource="kr/or/inair/ibatis/mapper/individualMember.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/CHAR_Quest.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/resume.xml"/>
+	
+	<!-- 수민 -->
+	<sqlMap resource="kr/or/inair/ibatis/mapper/employment.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/salary.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/uppro.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/upindustry.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/lowpro.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/lowIndustry.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/classOfPosition.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/language.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/work.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/academicDeta.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/career.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/cerificatie.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/winningPrize.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/lstcsList.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/selfIntroduction.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/portfolio.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/academic.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/admin.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/recruitmentfield.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/jobOfferFile.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/careerHistory.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/comProfile.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/joSubmit.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/Com_Drop.xml"/>
+	<!-- 유경 -->
+	<sqlMap resource="kr/or/inair/ibatis/mapper/freeboard.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/freeboard_file.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/noticeboard.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/mentorboard.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/mentorboard_file.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/resboard.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/resboard_file.xml"/>
+	<!-- 영래 -->
+	<sqlMap resource="kr/or/inair/ibatis/mapper/news.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/newsKeyWord.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/finalAcademic.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/zip.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/jobOffer.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/comCrtfcKey.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/company.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/companyInfo.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/companyMember.xml"/>
+	<!-- 혜인 -->
+	<sqlMap resource="kr/or/inair/ibatis/mapper/CHAR_List.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/CHAR_Result.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/CHAR_Deta.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/IDPicture.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/INDVDL_Drop.xml"/>
+	<sqlMap resource="kr/or/inair/ibatis/mapper/recent_JO.xml"/>
+</sqlMapConfig>

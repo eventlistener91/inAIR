@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="employment">
+	<typeAlias alias="employmentVO" type="kr.or.inair.vo.EmploymentVO"/>
+	
+	<statement id="selectEmplym" resultClass="String">
+		SELECT EMPLYM 
+		FROM   EMPLOYMENT 
+		WHERE  EMPLYM_NUM = #emplym_num#
+		AND    EMPLYM_DELETE = 'N'
+	</statement>
+	
+	<select id="getEmploymentList" resultClass="employmentVO">
+		SELECT * 
+		FROM   EMPLOYMENT WHERE EMPLYM_DELETE = 'N'
+	</select>
+	
+	<select id="adminEmploymentList" parameterClass="map" resultClass="employmentVO">
+		SELECT B.*
+		FROM   (SELECT ROWNUM RNUM, A.*
+		  		FROM   (SELECT *
+		  		        FROM   EMPLOYMENT
+		  		        WHERE  EMPLYM_DELETE = 'N' 
+		  		        ORDER  BY EMPLYM_NUM) A)B
+	  <![CDATA[
+		WHERE  B.RNUM <= #startCount#
+		AND    B.RNUM >= #endCount#
+		]]>
+		ORDER BY B.RNUM DESC
+	</select>
+	
+	<select id="adminEmployTotalCount" resultClass="String" >
+		SELECT COUNT(EMPLYM_NUM) 
+		FROM   EMPLOYMENT
+		WHERE  EMPLYM_DELETE = 'N'
+	</select>
+	
+	<insert id="insertEmploy" parameterClass="employmentVO">
+		<selectKey keyProperty="emplym_num">
+		  SELECT SEQ_EMPLOYMENT.NEXTVAL FROM DUAL
+		</selectKey>
+		  INSERT INTO EMPLOYMENT(EMPLYM_NUM
+		  					  	,EMPLYM)
+		  			  VALUES(#emplym_num#
+		  			  		,#emplym#)
+	</insert>
+	
+	<delete id="deleteEmploy" parameterClass="map">
+	     UPDATE EMPLOYMENT
+		    SET EMPLYM_DELETE = 'Y'
+		  WHERE EMPLYM_NUM = #emplym_num#
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap> 

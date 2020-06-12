@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="companyMem">
+	<typeAlias alias="companyMemVO" type="kr.or.inair.vo.CompanyMemVO"/>
+	
+	<resultMap class="companyMemVO" id="companyMemMap">
+		<result property="com_id" column="com_id"/>
+	    <result property="com_pass" column="com_pass"/>
+	    <result property="com_mail" column="com_mail"/>
+	    <result property="com_tel" column="com_tel"/>
+	    <result property="com_profit" column="com_profit"/>
+	    <result property="com_selng" column="com_selng"/>
+	    <result property="com_delete" column="com_delete"/>
+	    <result property="upinduty_num" column="upinduty_num"/>
+	    <result property="lwinduty_num" column="lwinduty_num"/>
+	    <result property="corp_code" column="corp_code"/>
+	    <result property="com_secsn" column="com_secsn"/>
+	    <result property="upinduty_name" column="upinduty_num" select="upindustry.selectUpindutyName"/>
+	    <result property="lwinduty_name" column="lwinduty_num" select="lowIndustry.selectLwindutyName"/>
+	    <result property="companyVo" column="corp_code" select="company.getMyPageCompanyInfo"/>
+	    <result property="companyInfoList" column="corp_code" select="companyInfo.getMyPageCompanyInfoList"/>
+	    <result property="lwindutyNumList" column="upinduty_num" select="lowIndustry.lowIndustryList"/>
+	</resultMap>
+	
+	<sql id="selectCompanyMem">
+		SELECT A.*,
+			   B.* 
+		FROM   COMPANYMEM A, COMPANY B
+		WHERE  A.COM_DELETE = 'N'	   
+	</sql>
+	
+	<sql id="searchCondition">
+		<dynamic prepend="and">
+			<isNotEmpty property="search_com_id" prepend="and">
+				A.COM_ID LIKE '%' || #search_com_id# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="search_corp_name" prepend="and">
+				B.CORP_NAME LIKE '%' || #search_corp_name# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="search_ceo_nm" prepend="and">
+				B.CEO_NM LIKE '%' || #search_ceo_nm# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="search_com_mail" prepend="and">
+				A.COM_MAIL LIKE '%' || #search_com_mail# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="search_bizr_no" prepend="and">
+				B.BIZR_NO LIKE '%' || #search_bizr_no# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="search_addr1" prepend="and">
+				B.ADRES LIKE '%' || #search_addr1# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="search_addr2" prepend="and">
+				B.ADRES LIKE '%' || #search_addr2# || '%'
+			</isNotEmpty>
+			<isNotEmpty property="lwinduty_num" prepend="and">
+				A.LWINDUTY_NUM LIKE '%' || #lwinduty_num# || '%'
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	<select id="getComMemInfo" parameterClass="Map" resultClass="companyMemVO">
+		SELECT * 
+		  FROM COMPANYMEM 
+		 WHERE COM_DELETE = 'N'
+		   AND COM_ID = #com_id# 
+		   AND COM_PASS = #com_pass#
+	</select>
+	
+	<select id="duplCheck" parameterClass="Map" resultClass="companyMemVO">
+		SELECT * FROM COMPANYMEM
+		<dynamic>
+			<isNotEmpty property="com_mail" prepend="WHERE">
+				COM_MAIL = #com_mail#
+			</isNotEmpty>
+			<isNotEmpty property="com_id" prepend="WHERE">
+				COM_ID = #com_id#
+			</isNotEmpty>
+			<isNotEmpty property="corp_code" prepend="WHERE">
+				CORP_CODE = #corp_code#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<insert id="insertCompanyMember" parameterClass="companyMemVO">
+		INSERT INTO COMPANYMEM(COM_ID
+							  ,COM_PASS
+							  ,COM_TEL
+							  ,COM_SELNG
+							  ,COM_PROFIT
+							  ,COM_MAIL
+							  ,COM_DELETE
+							  ,LWINDUTY_NUM
+							  ,CORP_CODE) 
+		VALUES (#com_id#,
+			    #com_pass#,
+			    #com_tel#,
+			    #com_selng#,
+			    #com_profit#,
+			    #com_mail#,
+			    'N',
+			    #lwinduty_num#,
+			    #corp_code#)
+	</insert>
+	
+	<select id="getTotalCount" parameterClass="map" resultClass="String">
+		SELECT COUNT(A.COM_ID) 
+		FROM   COMPANYMEM A, COMPANY B
+		WHERE  A.COM_DELETE = 'N'
+		AND    A.CORP_CODE = B.CORP_CODE 
+		<include refid="searchCondition" />
+	</select>
+	
+	<select id="adminGetCompanyMemList" parameterClass="map" resultClass="companyMemVO">
+		SELECT E.*
+		FROM   (SELECT ROWNUM RNUM, D.*
+		        FROM   (SELECT A.COM_ID,
+		                       A.COM_TEL,
+		                       A.COM_SELNG,
+		                       A.COM_PROFIT,
+		                       A.COM_MAIL,
+		                       A.COM_DELETE,
+		                       A.LWINDUTY_NUM,
+		                       A.CORP_CODE,
+		                       B.CORP_NAME,
+		                       B.CEO_NM,
+		                       B.BIZR_NO,
+		                       B.ADRES,
+		                       C.LWINDUTY_NAME 
+		                FROM   COMPANYMEM A, COMPANY B, LOWINDUSTRY C
+		                WHERE  A.COM_DELETE = 'N' 
+		                AND    A.CORP_CODE = B.CORP_CODE 
+		                AND    A.LWINDUTY_NUM = C.LWINDUTY_NUM 
+				  		<include refid="searchCondition"/>
+		                ORDER  BY B.CORP_NAME) D)E
+		<![CDATA[
+		WHERE  E.RNUM >= #startCount#
+		AND    E.RNUM <= #endCount#
+		]]>  
+	</select>
+	
+	<select id="getMyPageCompanyMemberInfo" parameterClass="String" resultMap="companyMemMap">
+		SELECT A.*,
+		       B.UPINDUTY_NUM
+		FROM   COMPANYMEM A, LOWINDUSTRY B
+		WHERE  COM_ID = #com_id# 
+		AND    A.LWINDUTY_NUM = B.LWINDUTY_NUM
+	</select>
+	
+	<update id="updatecompanyMEMInfo" parameterClass="companyMemVO">
+		UPDATE COMPANYMEM 
+		SET    COM_TEL = #com_tel#
+			  ,COM_SELNG = #com_selng#
+			  ,COM_PROFIT = #com_profit#
+			  ,COM_MAIL = #com_mail#
+			  ,LWINDUTY_NUM = #lwinduty_num#
+		WHERE  COM_ID  = #com_id#
+	</update>
+	
+	<select id="getDeleteCompanyMemberTotalCount" parameterClass="map" resultClass="String">
+		SELECT COUNT(A.COM_ID) 
+		FROM   COMPANYMEM A, COMPANY B
+		WHERE  A.COM_DELETE = 'Y'
+		AND    A.CORP_CODE = B.CORP_CODE 
+		<include refid="searchCondition" />
+	</select>
+	
+	<select id="adminGetDeleteCompanyMemList" parameterClass="map" resultClass="companyMemVO">
+		SELECT E.*
+		FROM   (SELECT ROWNUM RNUM, D.*
+		        FROM   (SELECT A.COM_ID,
+		                       A.COM_TEL,
+		                       A.COM_SELNG,
+		                       A.COM_PROFIT,
+		                       A.COM_MAIL,
+		                       A.COM_DELETE,
+		                       A.LWINDUTY_NUM,
+		                       A.CORP_CODE,
+		                       A.COM_SECSN,
+		                       B.CORP_NAME,
+		                       B.CEO_NM,
+		                       B.BIZR_NO,
+		                       B.ADRES,
+		                       C.LWINDUTY_NAME 
+		                FROM   COMPANYMEM A, COMPANY B, LOWINDUSTRY C
+		                WHERE  A.COM_DELETE = 'Y' 
+		                AND    A.CORP_CODE = B.CORP_CODE 
+		                AND    A.LWINDUTY_NUM = C.LWINDUTY_NUM 
+				  		<include refid="searchCondition"/>
+		                ORDER  BY B.CORP_NAME) D)E
+		<![CDATA[
+		WHERE  E.RNUM >= #startCount#
+		AND    E.RNUM <= #endCount#
+		]]>  
+	</select>
+	
+	<select id="adminGetCompanyMemberInfo" parameterClass="String" resultMap="companyMemMap">
+		SELECT A.*,
+			   B.UPINDUTY_NUM
+		FROM   COMPANYMEM A, LOWINDUSTRY B 
+		WHERE  COM_ID = #com_id#
+		AND    A.LWINDUTY_NUM = B.LWINDUTY_NUM
+	</select>
+	
+	<update id="passwordChange" parameterClass="Map">
+		UPDATE COMPANYMEM 
+		SET    COM_PASS = #com_pass#
+		WHERE  COM_ID = #com_id#
+	</update>
+	
+	<update id="deleteComMem" parameterClass="map">
+		UPDATE COMPANYMEM 
+		SET    COM_SECSN = #com_secsn#,
+			   COM_DELETE = 'Y'
+		WHERE  COM_ID = #com_id#
+	</update>
+</sqlMap> 
