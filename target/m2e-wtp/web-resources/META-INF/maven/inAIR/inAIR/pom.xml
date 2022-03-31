@@ -10,7 +10,7 @@
 	<properties>  
 		<java-version>1.7</java-version>
 		<!-- 실제 사용하는 spring 버전 -->
-		<org.springframework-version>3.2.9.RELEASE</org.springframework-version>
+		<org.springframework-version>5.3.18</org.springframework-version>
 		<!-- spring batch -->
 		<org.springframework.batch-version>2.2.7.RELEASE</org.springframework.batch-version>
 		<!-- aop -->
